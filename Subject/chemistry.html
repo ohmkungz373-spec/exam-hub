@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>เคมี | ม.4</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --primary:#4f46e5;--primary2:#7c3aed;--cyan:#06b6d4;--bluebg:#eef2ff;
+ --ink:#172554;--muted:#64748b;--bg:#f6f8ff;--white:#fff;--line:#e2e8f0;
+ --green:#16a34a;--red:#dc2626;--yellow:#fef3c7;
+}
+html{scroll-behavior:smooth;overflow-y:auto;-webkit-overflow-scrolling:touch}
+body{
+ font-family:"IBM Plex Sans Thai","Tahoma",Arial,sans-serif;
+ background:linear-gradient(135deg,#f7f8ff 0%,#eef7ff 100%);
+ color:var(--ink);line-height:1.7;min-height:100vh
+}
+header{
+ position:fixed;top:0;left:0;right:0;height:72px;z-index:50;
+ background:rgba(255,255,255,.88);backdrop-filter:blur(18px);
+ display:flex;align-items:center;justify-content:space-between;
+ padding:0 max(5%,24px);border-bottom:1px solid #e5e7eb;
+ box-shadow:0 4px 20px rgba(79,70,229,.08)
+}
+.logo{font-weight:950;font-size:18px;color:var(--primary);letter-spacing:.2px}
+.home-top{width:46px;height:46px;border:0;border-radius:15px;background:#eef2ff;color:#4f46e5;font-size:25px;font-weight:900;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(79,70,229,.12)}
+.home-top:hover{transform:translateY(-1px);background:#e0e7ff}
+.menu{
+ width:50px;height:46px;border:0;border-radius:15px;
+ background:linear-gradient(135deg,var(--primary),var(--primary2));
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:5px;cursor:pointer;box-shadow:0 8px 20px rgba(79,70,229,.22)
+}
+.menu span{width:23px;height:3px;background:white;border-radius:5px}
+main{max-width:1050px;margin:auto;padding:108px 5% 65px}
+.hero{text-align:center;margin-bottom:25px}
+.badge{
+ display:inline-flex;align-items:center;padding:7px 17px;border-radius:999px;
+ background:#fff7d6;color:#92400e;font-weight:900;font-size:14px;
+ box-shadow:0 5px 15px rgba(146,64,14,.08)
+}
+.hero h1{font-size:clamp(31px,6vw,55px);line-height:1.15;margin:13px 0 7px;font-weight:950}
+.hero h1 span{
+ background:linear-gradient(90deg,var(--primary),var(--primary2));
+ -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero p{color:var(--muted);font-size:15px}
+.progress-wrap{max-width:680px;margin:18px auto 0}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px}
+.progress{height:10px;background:#e7eaf4;border-radius:99px;overflow:hidden}
+.progress i{
+ display:block;height:100%;width:33.3%;
+ background:linear-gradient(90deg,var(--primary),var(--cyan));
+ border-radius:99px;transition:.35s
+}
+.page{
+ background:rgba(255,255,255,.95);border:1px solid rgba(226,232,240,.9);
+ border-radius:28px;padding:30px;box-shadow:0 18px 55px rgba(30,41,59,.09)
+}
+.topic-head{display:flex;align-items:center;gap:16px;margin-bottom:10px}
+.topic-no{
+ width:58px;height:58px;min-width:58px;border-radius:18px;display:grid;place-items:center;
+ background:linear-gradient(135deg,#e0e7ff,#ede9fe);color:var(--primary);
+ font-size:23px;font-weight:950
+}
+h2{font-size:32px;line-height:1.25;margin:0}
+.subtitle{color:var(--primary);font-weight:900;margin:3px 0 18px}
+.intro{
+ font-size:17px;background:#f8fafc;border-radius:17px;padding:15px 17px;
+ border-left:4px solid var(--cyan)
+}
+h3{
+ font-size:20px;color:#3730a3;margin:25px 0 9px;
+ display:flex;align-items:center;gap:8px
+}
+h3:before{content:"";width:7px;height:22px;border-radius:5px;background:linear-gradient(#6366f1,#06b6d4)}
+ul{padding-left:25px}
+li{font-size:16px;margin:7px 0}
+li::marker{color:#6366f1}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}
+.box{padding:17px;border-radius:18px;background:#f8fafc;border:1px solid #c7d2fe}
+.box strong{display:block;color:#3730a3;margin-bottom:4px}
+.formula{
+ margin-top:17px;padding:19px 20px 17px;border-radius:20px;
+ background:linear-gradient(160deg,#fffbeb 0%,#fef3c7 100%);
+ border:2px solid #f59e0b;color:#78350f;
+ box-shadow:0 10px 26px rgba(245,158,11,.16);overflow:auto
+}
+.formula .f-title{
+ display:flex;align-items:center;gap:7px;font-weight:900;font-size:13.5px;
+ color:#92400e;margin-bottom:13px;letter-spacing:.2px;text-transform:uppercase
+}
+.formula .f-row{margin:11px 0}
+.formula .f-row:first-child{margin-top:0}
+.formula .f-row:last-child{margin-bottom:0}
+.formula .f-label{display:block;font-weight:900;font-size:13.5px;color:#92400e;margin-bottom:7px}
+.formula .f-eq{
+ font-weight:800;font-size:18px;color:#78350f;letter-spacing:.2px;
+ background:#fff;border:1.5px dashed #f59e0b;border-radius:13px;padding:11px 15px;
+ display:block;font-variant-numeric:tabular-nums
+}
+.formula .f-chips{display:flex;flex-wrap:wrap;gap:7px}
+.formula .f-chip{
+ font-size:13.5px;font-weight:700;color:#92400e;
+ background:#fff;border:1px solid #fcd34d;border-radius:999px;padding:6px 13px;
+ box-shadow:0 2px 6px rgba(245,158,11,.12)
+}
+.formula .f-plain{font-size:14.5px;line-height:1.65;color:#78350f;display:flex;gap:7px}
+.formula .f-plain b{color:#92400e}
+@media(max-width:560px){
+ .formula{padding:16px 15px 14px}
+ .formula .f-eq{font-size:15.5px;padding:10px 12px}
+ .formula .f-chip{font-size:12.5px;padding:5px 11px}
+}
+.note{
+ margin-top:22px;padding:18px;border-radius:17px;
+ background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+ border:2px solid #1d4ed8;color:#1e3a8a;
+ box-shadow:0 8px 22px rgba(29,78,216,.16)
+}
+.nav{
+ display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px
+}
+.nav button{
+ border:0;border-radius:16px;padding:14px;background:#f1f5ff;color:#3730a3;
+ font-weight:900;cursor:pointer;transition:.2s
+}
+.nav button:hover{transform:translateY(-2px);background:#e0e7ff}
+.nav button:last-child{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}
+.nav button:last-child:hover{filter:brightness(1.06)}
+.quiz{
+ margin-top:25px;padding:20px;border-radius:20px;background:#f8fafc;
+ border:1px solid #e2e8f0
+}
+.quiz h3{margin-top:0}
+
+.q{
+ padding:15px;margin:12px 0;background:#fff;border-radius:15px;
+ border:1px solid #e5e7eb;box-shadow:0 4px 14px rgba(15,23,42,.04)
+}
+.q button{
+ margin:7px 7px 0 0;border:1px solid #cbd5e1;background:#fff;
+ padding:8px 13px;border-radius:11px;cursor:pointer;transition:.15s
+}
+.q button:hover{background:#eef2ff;border-color:#a5b4fc}
+.q button:disabled{cursor:default;opacity:.75}
+.answer{display:none;margin-top:10px;font-weight:900}
+.q .why-btn{
+ display:none;align-items:center;gap:7px;margin:11px 0 0;
+ border:0;color:#fff;font-weight:800;font-size:13px;
+ padding:9px 15px;border-radius:12px;cursor:pointer;transition:.18s ease;
+ background:linear-gradient(135deg,#f59e0b,#fb923c);
+ box-shadow:0 7px 18px rgba(245,158,11,.28)
+}
+.q .why-btn:hover{background:linear-gradient(135deg,#f59e0b,#fb923c);transform:translateY(-2px);box-shadow:0 10px 22px rgba(245,158,11,.36)}
+.q .why-btn:active{transform:translateY(0) scale(.98)}
+.q .why-btn .why-ico{font-size:15px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+
+/* ===== Explanation popup ===== */
+#exModal{position:fixed;inset:0;z-index:1100;display:none;align-items:center;justify-content:center;padding:18px;overscroll-behavior:contain}
+#exModal.show{display:flex}
+#exModal .ex-back{position:absolute;inset:0;background:rgba(15,23,42,.58);backdrop-filter:blur(3px);animation:qzFade .18s ease}
+#exModal .ex-box{
+ position:relative;width:min(480px,100%);max-height:min(82vh,640px);max-height:min(82dvh,640px);
+ display:flex;flex-direction:column;min-height:0;background:#fff;border-radius:26px;
+ box-shadow:0 30px 80px rgba(15,23,42,.35);overflow:hidden;animation:qzPop .22s cubic-bezier(.2,.9,.3,1.1)
+}
+#exModal .ex-head{
+ flex:none;display:flex;align-items:flex-start;gap:13px;padding:20px 20px 16px;
+ background:linear-gradient(135deg,#fff7ed,#fef3c7);border-bottom:1px solid #fde9c8
+}
+#exModal .ex-head-ico{
+ width:44px;height:44px;flex:none;display:grid;place-items:center;border-radius:14px;
+ background:linear-gradient(135deg,#f59e0b,#fb923c);font-size:21px;
+ box-shadow:0 8px 18px rgba(245,158,11,.35)
+}
+#exModal .ex-head-txt{min-width:0;flex:1}
+#exModal .ex-head-txt h4{margin:0;font-size:17px;color:#78350f;line-height:1.3}
+#exModal .ex-head-txt small{display:block;color:#92400e;font-size:12.5px;margin-top:3px;font-weight:700;line-height:1.5}
+#exModal .ex-x{margin-left:auto;flex:none;width:34px;height:34px;border:0;border-radius:11px;background:rgba(255,255,255,.7);color:#78350f;font-size:20px;line-height:1;cursor:pointer}
+#exModal .ex-x:hover{background:#fff}
+#exModal .ex-body{padding:18px 20px 22px;overflow-y:auto;flex:1 1 auto;min-height:0}
+#exModal .ex-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+#exModal .ex-pill{
+ flex:1 1 130px;padding:10px 13px;border-radius:14px;font-size:12.5px;
+ border:1px solid transparent;line-height:1.4
+}
+#exModal .ex-pill span{display:block;font-weight:700;opacity:.75;font-size:11px;margin-bottom:2px}
+#exModal .ex-pill b{display:block;font-size:14px}
+#exModal .ex-pill.right{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#bbf7d0;color:#14532d}
+#exModal .ex-pill.wrong{background:linear-gradient(135deg,#fff1f2,#fee2e2);border-color:#fecdd3;color:#881337}
+#exModal .ex-reason{
+ position:relative;padding:16px 18px 16px 20px;border-radius:18px;
+ background:linear-gradient(145deg,#faf5ff 0%,#f3e8ff 55%,#ede9fe 100%);
+ border:1px solid #e9d5ff;border-left:5px solid #a855f7;
+ color:#4c1d95;font-size:14.5px;line-height:1.75;
+ box-shadow:0 10px 26px rgba(168,85,247,.14),inset 0 1px 0 rgba(255,255,255,.6)
+}
+#exModal .ex-reason-label{
+ display:flex;align-items:center;gap:7px;font-weight:900;color:#7e22ce;
+ font-size:12.5px;letter-spacing:.4px;text-transform:uppercase;margin-bottom:8px
+}
+#exModal .ex-reason-label .rl-ico{
+ width:22px;height:22px;flex:none;display:grid;place-items:center;border-radius:8px;
+ background:linear-gradient(135deg,#c084fc,#a855f7);color:#fff;font-size:12px;
+ box-shadow:0 4px 10px rgba(168,85,247,.35)
+}
+#exModal .ex-reason-text{color:#4c1d95}
+#exModal .ex-reason b{color:#6b21a8}
+#exModal .ex-ok-banner{
+ display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;margin-bottom:14px;
+ background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;color:#14532d;
+ font-weight:800;font-size:13.5px
+}
+#exModal .ex-done{
+ margin-top:16px;width:100%;border:0;border-radius:14px;padding:12px;font-weight:800;font-size:14px;
+ background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;cursor:pointer;transition:.18s
+}
+#exModal .ex-done:hover{filter:brightness(1.06);transform:translateY(-1px)}
+@media(max-width:560px){
+ #exModal{align-items:flex-end;padding:0}
+ #exModal .ex-box{width:100%;max-height:88vh;max-height:88dvh;border-radius:26px 26px 0 0;animation:qzSheet .25s ease}
+}
+.search{
+ width:100%;padding:12px 15px;border:1px solid #d8dee9;border-radius:14px;
+ margin:8px 0 14px;font-size:15px;outline:none
+}
+.search:focus{border-color:#818cf8;box-shadow:0 0 0 3px #e0e7ff}
+.drawer{
+ position:fixed;z-index:80;left:0;top:0;width:min(390px,92vw);
+ height:100dvh;max-height:100dvh;
+ background:rgba(255,255,255,.98);
+ padding:22px 22px calc(34px + env(safe-area-inset-bottom));
+ transform:translateX(-105%);
+ transition:.3s cubic-bezier(.2,.8,.2,1);
+ box-shadow:20px 0 55px rgba(15,23,42,.18);
+ overflow-y:auto;overflow-x:hidden;
+ -webkit-overflow-scrolling:touch;
+ overscroll-behavior:contain;
+ touch-action:pan-y
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.drawer-head h2{font-size:22px;color:var(--primary);margin:0}
+.close{
+ width:40px;height:40px;border:0;border-radius:13px;background:#f1f5f9;
+ font-size:22px;cursor:pointer
+}
+.menu-section{
+ font-size:12px;color:#94a3b8;font-weight:900;margin:15px 7px 6px;
+ text-transform:uppercase;letter-spacing:.5px
+}
+.topic-btn{
+ width:100%;display:flex;align-items:center;gap:11px;text-align:left;
+ border:1px solid #edf0f7;background:#fff;color:var(--ink);padding:11px 12px;border-radius:16px;
+ margin:6px 0;font-size:14px;cursor:pointer;transition:.18s;
+ box-shadow:0 3px 10px rgba(15,23,42,.035)
+}
+.topic-btn:hover{background:#f8f9ff;transform:translateX(3px);border-color:#c7d2fe;box-shadow:0 7px 16px rgba(79,70,229,.08)}
+.topic-btn.active{
+ background:linear-gradient(90deg,#eef2ff,#f5f3ff);color:var(--primary);font-weight:950;
+ border-color:#a5b4fc;box-shadow:inset 4px 0 0 var(--primary),0 7px 18px rgba(79,70,229,.10)
+}
+.topic-btn.active{
+ outline:2px solid rgba(79,70,229,.18);
+ transform:translateX(3px);
+}
+.topic-btn.active::after{
+ content:"";
+ margin-left:8px;
+ padding:3px 7px;
+ border-radius:999px;
+ background:#4f46e5;
+ color:#fff;
+ font-size:10px;
+ font-weight:900;
+ white-space:nowrap;
+}
+
+.topic-btn .topic-num{
+ width:34px;height:34px;min-width:34px;border-radius:11px;display:grid;place-items:center;
+ background:linear-gradient(135deg,#e0e7ff,#ede9fe);color:#4338ca;font-size:12px;font-weight:950;
+ box-shadow:inset 0 0 0 1px rgba(99,102,241,.10)
+}
+.topic-btn.active .topic-num{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff}
+.topic-btn .topic-copy{min-width:0;display:block;line-height:1.35}
+.topic-btn .topic-label{display:block;font-size:14px;font-weight:900;color:#172554}
+.topic-btn.active .topic-label{color:#3730a3}
+.topic-btn .topic-sub{display:block;margin-top:2px;font-size:10.5px;color:#64748b;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topic-btn .topic-arrow{margin-left:auto;color:#94a3b8;font-size:18px;font-weight:900}
+.topic-btn.active .topic-arrow{color:#4f46e5}
+#menuList{padding-bottom:18px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.52);z-index:70}
+.overlay.show{display:block}
+.footer{text-align:center;color:#94a3b8;padding:24px 24px calc(34px + env(safe-area-inset-bottom))}
+li strong,.intro strong,.note strong,li b,.intro b,.note b,.sec-card b{color:#3730a3;font-weight:900}
+mark{background:linear-gradient(135deg,#fef08a,#fde68a);color:#78350f;padding:1px 6px;border-radius:6px;font-weight:900;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark.g{background:linear-gradient(135deg,#bbf7d0,#86efac);color:#14532d}
+mark.r{background:linear-gradient(135deg,#fecdd3,#fda4af);color:#881337}
+mark.b{background:linear-gradient(135deg,#bae6fd,#a5b4fc);color:#1e3a8a}
+mark.p{background:linear-gradient(135deg,#e9d5ff,#d8b4fe);color:#581c87}
+.note mark{background:linear-gradient(135deg,#bfdbfe,#93c5fd)!important;color:#1e3a8a!important}
+.small{font-size:13px;color:var(--muted)}
+@media(max-width:650px){
+ header{height:66px}
+ main{padding:95px 4.5% 55px}
+ .page{padding:20px;border-radius:23px}
+ .topic-head{align-items:flex-start}
+ .topic-no{width:50px;height:50px;min-width:50px;border-radius:15px;font-size:20px}
+ h2{font-size:25px}
+ .intro{font-size:15px}
+ .nav button{font-size:13px;padding:12px 8px}
+ .drawer{padding:18px 18px calc(34px + env(safe-area-inset-bottom))}
+}
+
+
+.quiz-select{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.quiz-select button{border:1px solid #cbd5e1;background:#fff;color:#3730a3;padding:11px 12px;border-radius:12px;font-weight:900;cursor:pointer}
+.quiz-select button.active{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-color:transparent}
+@media(max-width:650px){.quiz-select{grid-template-columns:1fr}}
+
+@media(max-width:650px){.home-top{width:42px;height:42px;border-radius:13px;font-size:23px}}
+
+/* ===== Unified Premium UI — shared by every subject ===== */
+:root{
+ --primary:#4f46e5!important;--primary2:#7c3aed!important;--cyan:#06b6d4!important;
+ --ink:#172554!important;--muted:#64748b!important;--bg:#f6f8ff!important;
+ --line:#e2e8f0!important;--white:#fff!important;
+}
+body{
+ background:
+ radial-gradient(circle at 10% 0%,rgba(99,102,241,.12),transparent 30%),
+ radial-gradient(circle at 90% 10%,rgba(6,182,212,.10),transparent 28%),
+ linear-gradient(135deg,#f8faff 0%,#eef4ff 48%,#f8f5ff 100%)!important;
+}
+header{
+ height:76px!important;
+ background:rgba(255,255,255,.82)!important;
+ border-bottom:1px solid rgba(148,163,184,.18)!important;
+ box-shadow:0 10px 35px rgba(30,41,59,.08)!important;
+}
+.logo{
+ display:flex!important;align-items:center;gap:10px;
+ font-size:19px!important;letter-spacing:.1px;
+}
+.logo::before{
+ content:"✦";width:34px;height:34px;border-radius:11px;
+ display:grid;place-items:center;color:#fff;font-size:16px;
+ background:linear-gradient(135deg,#4f46e5,#7c3aed);
+ box-shadow:0 7px 18px rgba(79,70,229,.24);
+}
+.home-top,.menu{
+ border:1px solid rgba(99,102,241,.12)!important;
+ box-shadow:0 9px 24px rgba(79,70,229,.16)!important;
+ transition:.2s ease!important;
+}
+.home-top:hover,.menu:hover{transform:translateY(-2px)!important}
+main{max-width:1120px!important;padding-top:116px!important}
+.hero{margin-bottom:30px!important}
+.badge{
+ padding:8px 16px!important;border:1px solid rgba(99,102,241,.15)!important;
+ box-shadow:0 8px 22px rgba(79,70,229,.08)!important;
+ background:rgba(255,255,255,.78)!important;
+}
+.hero h1,.hero h2{
+ letter-spacing:-.7px;
+ text-shadow:0 3px 20px rgba(79,70,229,.08);
+}
+.subtitle{max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+.page{
+ border:1px solid rgba(255,255,255,.82)!important;
+ background:rgba(255,255,255,.90)!important;
+ box-shadow:0 18px 55px rgba(30,41,59,.10)!important;
+ border-radius:30px!important;
+ backdrop-filter:blur(14px)!important;
+}
+.topic-head{
+ padding-bottom:18px!important;margin-bottom:20px!important;
+ border-bottom:1px solid #eef2f7!important;
+}
+.topic-no{
+ box-shadow:0 10px 25px rgba(79,70,229,.16)!important;
+}
+.intro,.box{
+ border-radius:20px!important;
+ border:1px solid #c7d2fe!important;
+ box-shadow:0 8px 24px rgba(30,41,59,.055)!important;
+}
+.note{
+ border-radius:20px!important;
+ border:2px solid #1d4ed8!important;
+ box-shadow:0 8px 24px rgba(29,78,216,.16)!important;
+}
+.grid{gap:16px!important}
+.box:hover{
+ transform:translateY(-2px);
+ box-shadow:0 13px 30px rgba(30,41,59,.08)!important;
+ transition:.2s ease;
+}
+.nav{
+ border-top:1px solid #eef2f7!important;
+ margin-top:26px!important;padding-top:18px!important;
+}
+.nav button,.quiz button{
+ border-radius:15px!important;
+ transition:.18s ease!important;
+ box-shadow:0 5px 16px rgba(30,41,59,.045)!important;
+}
+.nav button:hover,.quiz button:hover{transform:translateY(-2px)!important}
+.quiz{
+ border-radius:24px!important;
+ border:1px solid #a5b4fc!important;
+ box-shadow:0 14px 35px rgba(79,70,229,.07)!important;
+ overflow:hidden;
+}
+.q{
+ border-radius:18px!important;
+ border:1px solid #c7d2fe!important;
+ box-shadow:0 7px 20px rgba(30,41,59,.045)!important;
+}
+.answer{
+ border-radius:15px!important;
+}
+.search{
+ background:rgba(255,255,255,.9)!important;
+ box-shadow:0 8px 24px rgba(30,41,59,.06)!important;
+}
+.drawer{
+ background:rgba(250,251,255,.96)!important;
+ box-shadow:16px 0 55px rgba(15,23,42,.16)!important;
+}
+.drawer-head{
+ background:rgba(255,255,255,.82)!important;
+ border-bottom:1px solid #e8edf5!important;
+}
+.menu-section{
+ margin:18px 5px 7px!important;
+ font-size:10px!important;font-weight:950!important;
+ letter-spacing:1px!important;text-transform:uppercase;
+ color:#818cf8!important;
+}
+.topic-btn{
+ width:100%!important;display:flex!important;align-items:center!important;gap:11px!important;
+ text-align:left!important;border:1px solid #edf0f7!important;
+ background:rgba(255,255,255,.92)!important;color:var(--ink)!important;
+ padding:11px 12px!important;border-radius:16px!important;margin:6px 0!important;
+ font-size:14px!important;cursor:pointer!important;transition:.18s!important;
+ box-shadow:0 3px 10px rgba(15,23,42,.035)!important;
+}
+.topic-btn:hover{
+ background:#f8f9ff!important;transform:translateX(3px)!important;
+ border-color:#c7d2fe!important;box-shadow:0 7px 16px rgba(79,70,229,.08)!important;
+}
+.topic-btn.active{
+ background:linear-gradient(90deg,#eef2ff,#f5f3ff)!important;
+ color:var(--primary)!important;font-weight:950!important;
+ border-color:#a5b4fc!important;
+ box-shadow:inset 4px 0 0 var(--primary),0 7px 18px rgba(79,70,229,.10)!important;
+}
+.topic-btn .topic-num{
+ width:34px!important;height:34px!important;min-width:34px!important;
+ border-radius:11px!important;display:grid!important;place-items:center!important;
+ background:linear-gradient(135deg,#e0e7ff,#ede9fe)!important;
+ color:#4338ca!important;font-size:12px!important;font-weight:950!important;
+ box-shadow:inset 0 0 0 1px rgba(99,102,241,.10)!important;
+}
+.topic-btn.active .topic-num{
+ background:linear-gradient(135deg,#4f46e5,#7c3aed)!important;color:#fff!important;
+}
+.topic-btn .topic-copy{min-width:0!important;display:block!important;line-height:1.35!important}
+.topic-btn .topic-label{display:block!important;font-size:14px!important;font-weight:900!important;color:#172554!important}
+.topic-btn.active .topic-label{color:#3730a3!important}
+.topic-btn .topic-sub{
+ display:block!important;margin-top:2px!important;font-size:10.5px!important;
+ color:#64748b!important;font-weight:600!important;white-space:nowrap!important;
+ overflow:hidden!important;text-overflow:ellipsis!important;
+}
+.topic-btn .topic-arrow{margin-left:auto!important;color:#94a3b8!important;font-size:18px!important;font-weight:900!important}
+.topic-btn.active .topic-arrow{color:#4f46e5!important}
+.page-view-head,.page-view-head-in{
+ border-radius:20px!important;
+}
+.home-btn,.quiz-start{
+ border-radius:15px!important;
+ box-shadow:0 9px 22px rgba(79,70,229,.16)!important;
+ transition:.18s ease!important;
+}
+.home-btn:hover,.quiz-start:hover{transform:translateY(-2px)!important}
+footer{
+ margin-top:20px!important;
+ color:#64748b!important;
+ opacity:.9;
+}
+@media(max-width:700px){
+ header{height:68px!important}
+ main{padding:94px 4% 45px!important}
+ .page{border-radius:22px!important}
+ .topic-btn{padding:10px!important}
+ .topic-btn .topic-label{font-size:13px!important}
+}
+
+/* กรอบโค้งสำหรับแต่ละหัวข้อเนื้อหา — อ่านง่ายขึ้น */
+.sec-card{
+ margin-top:18px;padding:20px 22px 16px;border-radius:22px;
+ background:linear-gradient(180deg,#ffffff 0%,#fafbff 100%);
+ border:1px solid #a5b4fc;
+ box-shadow:0 6px 22px rgba(79,70,229,.07),0 1px 3px rgba(15,23,42,.04);
+}
+.sec-card h3{margin:0 0 12px;padding-bottom:12px;border-bottom:1px dashed #dbe3ff}
+.sec-card ul{padding-left:22px;margin:0}
+.sec-card li{margin:9px 0}
+@media(max-width:560px){
+ .sec-card{padding:14px 12px 10px;border-radius:20px;margin-top:14px}
+ .sec-card ul{padding-left:18px}
+ .sec-card li{margin:8px 0}
+ .page{padding:22px 14px}
+}
+</style>
+
+<style id="header-fix">
+.header-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-shrink:0;white-space:nowrap}
+header .logo{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:650px){
+  header{padding:0 14px!important;gap:8px}
+  header .logo{font-size:16px;flex:1;min-width:0}
+  .header-actions{gap:7px;flex-shrink:0}
+  .home-top{width:42px!important;height:42px!important;border-radius:13px!important;font-size:23px!important}
+  .menu{width:46px!important;height:42px!important}
+}
+
+/* ===== Quiz chapter popup ===== */
+.quiz-pick-btn{
+  width:100%;display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;
+  margin:14px 0 18px;padding:20px 20px;border-radius:22px;border:0;color:#fff;font:inherit;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  box-shadow:0 14px 32px rgba(79,70,229,.38);transition:.18s ease;position:relative;overflow:hidden;
+  animation:qpPulse 2.2s ease-in-out 3
+}
+.quiz-pick-btn:before{content:"";position:absolute;right:-30px;top:-40px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.14)}
+.quiz-pick-btn:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(79,70,229,.48)}
+.quiz-pick-btn:active{transform:scale(.985)}
+.quiz-pick-btn:focus{outline:none}
+.quiz-pick-btn:focus-visible{outline:3px solid #c7d2fe;outline-offset:3px}
+.quiz-pick-btn .qp-ico{width:54px;height:54px;flex:0 0 54px;display:grid;place-items:center;border-radius:17px;background:rgba(255,255,255,.2);font-size:28px;position:relative}
+.quiz-pick-btn .qp-txt{min-width:0;flex:1;position:relative}
+.quiz-pick-btn .qp-lab{display:block;white-space:nowrap;font-size:13px;font-weight:800;color:#e0e7ff;letter-spacing:.2px}
+.quiz-pick-btn .qp-cur{display:block;font-size:20px;font-weight:900;line-height:1.3;margin-top:3px;color:#fff}
+.quiz-pick-btn .qp-sub{display:block;font-size:13px;color:#e0e7ff;font-weight:700;margin-top:3px}
+.quiz-pick-btn .qp-go{flex:0 0 auto;font-size:15px;font-weight:900;color:#4338ca;padding:12px 16px;border-radius:14px;background:#fff;position:relative;box-shadow:0 6px 16px rgba(15,23,42,.18)}
+@keyframes qpPulse{0%,100%{box-shadow:0 14px 32px rgba(79,70,229,.38)}50%{box-shadow:0 14px 32px rgba(79,70,229,.38),0 0 0 9px rgba(129,140,248,.35)}}
+
+
+
+#qzModal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;overscroll-behavior:contain}
+#qzModal.show{display:flex}
+#qzModal .qz-back{position:absolute;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(3px);animation:qzFade .18s ease}
+#qzModal .qz-box{
+  position:relative;width:min(560px,100%);max-height:min(82vh,720px);max-height:min(82dvh,720px);display:flex;flex-direction:column;min-height:0;
+  background:#fff;border-radius:26px;box-shadow:0 30px 80px rgba(15,23,42,.35);overflow:hidden;animation:qzPop .22s cubic-bezier(.2,.9,.3,1.1)
+}
+#qzModal .qz-head{flex:none;display:flex;align-items:center;gap:12px;padding:18px 20px 14px;border-bottom:1px solid #eef0f6}
+#qzModal .qz-head-ico{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#eef2ff,#e0f2fe);font-size:21px;flex:none}
+#qzModal .qz-head h4{margin:0;font-size:18px;color:#172554;line-height:1.3}
+#qzModal .qz-head small{display:block;color:#64748b;font-size:12.5px;margin-top:1px}
+#qzModal .qz-x{margin-left:auto;flex:none;width:36px;height:36px;border:0;border-radius:12px;background:#f1f5f9;color:#475569;font-size:22px;line-height:1;cursor:pointer}
+#qzModal .qz-x:hover{background:#e2e8f0}
+#qzModal .qz-list{padding:14px 16px 18px;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;display:grid;gap:10px;align-content:start;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;scroll-behavior:auto;scrollbar-width:thin;scrollbar-color:#a5b4fc #f1f5f9}
+#qzModal .qz-list::-webkit-scrollbar{width:8px}
+#qzModal .qz-list::-webkit-scrollbar-track{background:#f1f5f9;border-radius:8px}
+#qzModal .qz-list::-webkit-scrollbar-thumb{background:#a5b4fc;border-radius:8px}
+#qzModal .qz-item{
+  display:flex;align-items:center;gap:13px;width:100%;text-align:left;cursor:pointer;font:inherit;
+  padding:13px 14px;border-radius:16px;border:1px solid #e2e8f0;background:#fff;color:#1e293b;transition:.16s ease
+}
+#qzModal .qz-item:hover{transform:translateY(-1px);border-color:#a5b4fc;background:#fafaff;box-shadow:0 8px 20px rgba(15,23,42,.08)}
+#qzModal .qz-item:focus-visible{outline:3px solid rgba(79,70,229,.3);outline-offset:2px}
+#qzModal .qz-item.active{border-color:#4f46e5;background:linear-gradient(135deg,#eef2ff,#f5f3ff);box-shadow:0 0 0 2px rgba(79,70,229,.10)}
+#qzModal .qz-item .qz-i{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:12px;background:#f1f5f9;font-size:18px}
+#qzModal .qz-item.active .qz-i{background:#e0e7ff}
+#qzModal .qz-item .qz-t{min-width:0;flex:1}
+#qzModal .qz-item .qz-n{display:block;font-size:14.5px;font-weight:800;line-height:1.35}
+#qzModal .qz-item .qz-c{display:block;font-size:11.5px;color:#64748b;font-weight:600;margin-top:2px}
+#qzModal .qz-item .qz-ok{flex:none;font-size:18px;color:#4f46e5;opacity:0;transition:.16s}
+#qzModal .qz-item.active .qz-ok{opacity:1}
+#qzModal .qz-item.all{border-style:dashed;border-color:#c7d2fe}
+body.qz-lock,html.qz-lock{overflow:hidden}
+@keyframes qzFade{from{opacity:0}to{opacity:1}}
+@keyframes qzPop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+@media(max-width:560px){
+  #qzModal{align-items:flex-end;padding:0}
+  #qzModal .qz-box{width:100%;max-height:86vh;max-height:86dvh;border-radius:26px 26px 0 0;animation:qzSheet .25s ease}
+  .quiz-pick-btn{padding:16px 14px;gap:12px}
+  .quiz-pick-btn .qp-ico{width:46px;height:46px;flex-basis:46px;font-size:24px}
+  .quiz-pick-btn .qp-cur{font-size:17px}
+  .quiz-pick-btn .qp-go{padding:10px 11px;font-size:13.5px;white-space:nowrap}
+  .quiz-pick-btn .qp-lab{font-size:12.5px}
+}
+@keyframes qzSheet{from{transform:translateY(40px);opacity:.6}to{transform:none;opacity:1}}
+
+/* ===== Quiz: submit-all mode ===== */
+.quiz-bar{
+  display:flex;align-items:center;gap:10px;flex-wrap:nowrap;
+  margin:14px 0 0;padding:10px;border-radius:18px;
+  background:#fff;border:1px solid #e6eaf4;box-shadow:0 8px 22px rgba(79,70,229,.08);
+}
+.quiz-bar button{
+  font:inherit;font-weight:900;border:0;cursor:pointer;border-radius:13px;
+  padding:11px 16px;white-space:nowrap;transition:.16s ease;
+}
+.quiz-submit-wrap{margin-top:16px}
+.quiz-submit-wrap .qb-submit{
+  display:block;width:100%;font:inherit;font-weight:900;font-size:17px;border:0;cursor:pointer;
+  padding:15px 18px;border-radius:16px;color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  box-shadow:0 10px 24px rgba(79,70,229,.32);transition:.16s ease;
+}
+.quiz-submit-wrap .qb-submit:hover:not(:disabled){transform:translateY(-2px)}
+.quiz-submit-wrap .qb-submit:disabled{opacity:.55;cursor:default;box-shadow:none}
+.quiz-submit-wrap .quiz-note{margin:0 2px 10px}
+.quiz-bar .qb-reset{background:#eef2ff;color:#3730a3}
+.quiz-bar .qb-reset:hover{background:#e0e7ff;transform:translateY(-2px)}
+.quiz-bar .qb-score{
+  margin-left:auto;text-align:right;line-height:1.2;min-width:0;
+  font-weight:900;color:#334155;
+}
+.quiz-bar .qb-score small{display:block;font-size:11px;font-weight:700;color:#64748b}
+.quiz-bar .qb-score b{font-size:20px;color:#3730a3}
+.quiz-bar .qb-score.done b{color:#15803d}
+.quiz-bar .qb-score.low b{color:#dc2626}
+.quiz-bar + .quiz-pick-btn{margin-top:12px}
+.q .opt{
+  display:block;width:100%;text-align:left;margin:7px 0 0;
+  border:1.5px solid #cbd5e1;background:#fff;padding:10px 13px;border-radius:12px;
+  cursor:pointer;transition:.15s;font:inherit;color:inherit;
+}
+.q .opt:hover:not(:disabled){background:#eef2ff;border-color:#a5b4fc}
+.q .opt.picked{background:linear-gradient(135deg,#eef2ff,#f5f3ff);border-color:#4f46e5;box-shadow:0 0 0 2px rgba(79,70,229,.12);font-weight:800}
+.q .opt:disabled{cursor:default;opacity:1}
+.q .opt.right{background:#dcfce7;border-color:#22c55e;color:#14532d;font-weight:800}
+.q .opt.wrong{background:#fee2e2;border-color:#ef4444;color:#7f1d1d;font-weight:800}
+.q.unanswered{border-color:#f59e0b!important;box-shadow:0 0 0 3px rgba(245,158,11,.18)!important}
+.q .answer{margin-top:10px;padding:8px 12px;background:#f8fafc}
+.q.is-right .answer{background:#f0fdf4}
+.q.is-wrong .answer{background:#fef2f2}
+.quiz-note{display:none;margin:10px 2px 0;font-size:13px;font-weight:800;color:#b45309}
+.quiz-note.show{display:block}
+@media(max-width:560px){
+  .quiz-bar{gap:7px;padding:8px}
+  .quiz-bar button{padding:10px 11px;font-size:13.5px}
+  .quiz-bar .qb-score b{font-size:17px}
+  .quiz-bar .qb-score small{font-size:10px}
+}
+
+/* ปุ่มบทก่อนหน้า/ถัดไป เมื่อกดไม่ได้ (บทแรก/บทสุดท้าย) */
+.nav button:disabled,.nav button:disabled:hover{
+ opacity:.4!important;cursor:not-allowed!important;transform:none!important;
+ filter:none!important;box-shadow:none!important;
+}
+.nav button:first-child:disabled,.nav button:first-child:disabled:hover{background:#f1f5ff!important}
+.nav button:last-child:disabled,.nav button:last-child:disabled:hover{
+ background:linear-gradient(135deg,var(--primary),var(--primary2))!important;
+}
+
+/* กันเนื้อหากว้างเกินจอ: ตาราง (ห่อด้วย .tbl-scroll โดยสคริปต์), รูป, คำยาว */
+.tbl-scroll{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;margin:8px 0}
+.sec-card img,.intro img,.note img{max-width:100%;height:auto}
+.sec-card,.intro,.note,.formula,.q{overflow-wrap:break-word}
+</style>
+<!-- CSS เฉพาะวิชา (เช่น ตาราง/รูปประกอบ/สูตร) — ถ้าไม่มีปล่อยว่างไว้ได้ -->
+<style id="subject-extra">
+/* ตัวอย่าง: .my-table{ ... }  แล้วใช้ในเนื้อหาผ่านช่อง HTML ตัวที่ 3 ของ section */
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" id="subjLogo"></div>
+  <div class="header-actions">
+    <button class="home-top" onclick="goHomeFromSubject()" aria-label="กลับหน้าหลัก">⌂</button>
+    <button class="menu" onclick="openMenu()" aria-label="เปิดเมนู"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h2>📚 บทเรียน</h2><button class="close" onclick="closeMenu()">×</button></div>
+  <input class="search" id="search" placeholder="ค้นหาบทเรียน" oninput="filterMenu()">
+  <div id="menuList"></div>
+</aside>
+<main>
+<section class="hero">
+  <span class="badge" id="subjBadge"></span>
+  <h1><span id="subjTitle"></span> <span id="subjAccent"></span></h1>
+  <p id="subjDesc"></p>
+  <div class="progress-wrap"><div class="progress-label"><span id="progressText">บท 1</span><span>ความคืบหน้า</span></div><div class="progress"><i id="progress"></i></div></div>
+</section>
+
+<section class="page" id="page"></section>
+</main>
+
+<div class="footer" id="subjFooter"></div>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     ①②③  ข้อมูลวิชา  —  ส่วนที่ต้องแก้เมื่อทำวิชาใหม่ (ทั้งหมดอยู่ในบล็อกเดียว)
+     Hub อ่านบล็อกนี้อัตโนมัติ เพื่อสร้างการ์ดวิชา (ชื่อ/ไอคอน/วันสอบ/จำนวนบท)
+     ห้ามใส่โค้ดที่ใช้ document / window ในบล็อกนี้ — ใส่ได้เฉพาะข้อมูล
+     ════════════════════════════════════════════════════════════════════ -->
+<script id="subject-data">
+/* ─────────────── ① SUBJECT : ข้อมูลทั่วไปของวิชา ─────────────── */
+const SUBJECT = {
+  // ── จำเป็น ──
+  icon:  "🧪",
+  name:  "เคมี 1",
+  examDay: "wed",
+  order: 10,
+
+  // ── ไม่จำเป็น ──
+  level: "ม.4",
+  logo:  "CHEMISTRY 1",
+  badge: "",
+  titleAccent: "แนวข้อสอบปลายภาค",
+  desc:  "พันธะเคมี: ไอออนิก · โคเวเลนต์ · โครงผลึกร่างตาข่าย · พันธะโลหะ · แรงระหว่างโมเลกุล (เอกสารหน้า 50-112)",
+  searchHint: "VSEPR ไอออนิก Born-Haber แรงลอนดอน",
+  footer: ""
+};
+
+/* ─────────────── ② TOPICS : เนื้อหาแต่ละบท ───────────────
+   หนึ่งบท = หนึ่งออบเจกต์ (เรียงตามลำดับที่จะโชว์ในเมนู)
+   {
+     title: "ชื่อบท",                         // จำเป็น
+     part:  "ส่วนที่ 1",                       // ไม่จำเป็น — หัวกลุ่มในเมนู (ไม่ใส่ = ไม่แบ่งกลุ่ม;
+                                              //   หรือเขียน title เป็น "หมวด · ชื่อบท" ก็จะแยกกลุ่มให้เอง)
+     sub:   "บทย่อย: หัวข้อ 1 · หัวข้อ 2",      // ไม่จำเป็น — บรรทัดเล็กใต้ชื่อบท
+     intro: "คำนำสั้น ๆ",                       // ไม่จำเป็น
+     sections: [                               // กล่องเนื้อหา
+        ["หัวข้อกล่อง", ["ข้อความ 1", "ข้อความ 2"]],
+        ["หัวข้อกล่อง (มีตาราง/HTML เพิ่ม)", ["ข้อความ"], "<div>HTML อิสระ</div>"]   // ช่องที่ 3 ไม่จำเป็น
+     ],
+     formula: "สูตร",                           // ไม่จำเป็น — กล่องสูตรเด่น (ขึ้นบรรทัดใหม่ด้วย \n)
+     note: "สรุปจุดที่ต้องจำ"                    // ไม่จำเป็น — กล่อง ⭐ จุดที่ควรจำ
+   }
+   ★ บทสุดท้ายต้องเป็นหน้า Quiz เสมอ (sections ว่าง) — ห้ามลบ
+
+   ── การไฮไลท์ข้อความในเนื้อหา (intro / sections / note) ──
+   <b>คำ</b>                — ตัวหนาเฉย ๆ ใช้กับ "คำศัพท์/คำจำกัดความ" ที่กำลังอธิบาย
+   <mark>ข้อความ</mark>      — ไฮไลท์เหลือง (ค่าเริ่มต้น) ใช้กับจุดสำคัญทั่วไปที่ต้องจำ
+   <mark class=b>ข้อความ</mark> — ไฮไลท์ฟ้า   ใช้กับ "ขั้นตอน/ลำดับ" หรือคำนิยามหลัก
+   <mark class=g>ข้อความ</mark> — ไฮไลท์เขียว  ใช้กับ "ตัวอย่างที่ถูกต้อง/ควรทำ"
+   <mark class=r>ข้อความ</mark> — ไฮไลท์แดง   ใช้กับ "จุดที่ออกสอบบ่อย/ข้อควรระวัง/ห้ามพลาด"
+   <mark class=p>ข้อความ</mark> — ไฮไลท์ม่วง  ใช้กับ "สถานการณ์/เงื่อนไข" ที่นำไปสู่คำตอบ
+*/
+const topics = [
+  {
+    title: "การเรียกชื่อและเขียนสูตรสารประกอบไอออนิก",
+    part: "พันธะไอออนิก",
+    sub: "บทย่อย: หลักไขว้ประจุ · การเรียกชื่อ · โพลีอะตอมิกไอออน",
+    intro: "หลักการเขียนสูตรและเรียกชื่อสารประกอบไอออนิก จุดที่ออกสอบบ่อยคือการไม่ลดรูปตัวเลขห้อย และการลืมระบุเลขโรมันของโลหะทรานซิชัน",
+    sections: [
+      ["กฎการเขียนสูตร", [
+        "ไอออนบวกเขียนก่อน ไอออนลบเขียนทีหลังเสมอ",
+        "ใช้หลัก<mark class=b>ไขว้ประจุ (criss-cross)</mark> โดยเลขประจุของไอออนหนึ่งไปเป็นตัวห้อยของอีกไอออนหนึ่ง",
+        "<mark class=r>ต้องลดรูปตัวเลขห้อยให้เป็นอัตราส่วนอย่างง่ายเสมอ</mark> เช่น Ca²⁺ + O²⁻ → CaO ไม่ใช่ Ca₂O₂"
+      ]],
+      ["การเรียกชื่อ", [
+        "ไอออนบวก (โลหะ) เรียกชื่อธาตุตามปกติ",
+        "โลหะทรานซิชันที่มีเลขออกซิเดชันได้หลายค่า (Fe, Cu, Sn, Pb, Hg) <mark class=r>ต้องระบุเลขโรมันในวงเล็บกำกับเสมอ</mark> เช่น FeCl₂ = ไอรอน(II)คลอไรด์, FeCl₃ = ไอรอน(III)คลอไรด์",
+        "ไอออนลบที่เป็นธาตุเดี่ยวลงท้ายด้วย -ide เช่น Cl⁻ = คลอไรด์, O²⁻ = ออกไซด์",
+        "ไอออนลบที่เป็นกลุ่มอะตอม (โพลีอะตอมิกไอออน) ใช้ชื่อเฉพาะ เช่น SO₄²⁻ = ซัลเฟต, NO₃⁻ = ไนเตรต, CO₃²⁻ = คาร์บอเนต"
+      ]],
+      ["โพลีอะตอมิกไอออนที่ข้อสอบชอบเอามาหลอก", [
+        "<mark class=r>SO₄²⁻ ซัลเฟต ≠ SO₃²⁻ ซัลไฟต์</mark>",
+        "<mark class=r>NO₃⁻ ไนเตรต ≠ NO₂⁻ ไนไตรต์</mark>",
+        "<mark class=r>PO₄³⁻ ฟอสเฟต ≠ PO₃³⁻ ฟอสไฟต์</mark>",
+        "OH⁻ ไฮดรอกไซด์ · NH₄⁺ แอมโมเนียม · CN⁻ ไซยาไนด์"
+      ]]
+    ],
+    formula: "ตัวอย่างไขว้ประจุ:\nAl³⁺ + O²⁻ → Al₂O₃\nCa²⁺ + PO₄³⁻ → Ca₃(PO₄)₂\nกฎ: ผลรวมประจุบวก = ผลรวมประจุลบ",
+    note: "จุดที่ออกสอบบ่อย: ลืมระบุเลขโรมันของโลหะทรานซิชัน และไม่ลดรูปตัวเลขห้อยให้เป็นอัตราส่วนอย่างง่าย"
+  },
+  {
+    title: "พลังงานกับการเกิดสารประกอบไอออนิก (Born-Haber)",
+    part: "พันธะไอออนิก",
+    sub: "บทย่อย: วัฏจักร Born-Haber · พลังงานแลตทิซ",
+    intro: "วัฏจักร Born-Haber ใช้อธิบายพลังงานที่เกี่ยวข้องกับการเกิดสารประกอบไอออนิกจากธาตุตั้งต้น โดยอาศัยกฎการอนุรักษ์พลังงาน",
+    sections: [
+      ["ขั้นตอนในวัฏจักร Born-Haber (เรียงลำดับ)", [
+        "① พลังงานระเหิด (sublimation) — โลหะของแข็ง → โลหะแก๊ส",
+        "② พลังงานไอออไนเซชัน (IE) — โลหะแก๊ส → ไอออนบวก + e⁻ (ดูดพลังงาน)",
+        "③ พลังงานสลายพันธะ (bond dissociation) — โมเลกุลอโลหะแก๊ส → อะตอมเดี่ยวแก๊ส (ดูดพลังงาน)",
+        "④ สัมพรรคภาพอิเล็กตรอน (EA) — อะตอมแก๊ส + e⁻ → ไอออนลบ (ส่วนใหญ่คายพลังงาน)",
+        "⑤ พลังงานแลตทิซ (lattice energy) — ไอออนบวก + ไอออนลบแก๊ส → ผลึกไอออนิก (<mark class=g>คายพลังงานมากที่สุด</mark>)"
+      ]],
+      ["หลักการคำนวณ", [
+        "ใช้<mark class=b>กฎการอนุรักษ์พลังงาน (Hess's Law)</mark>: ผลรวมพลังงานทุกขั้นตอน = พลังงานการเกิดสารประกอบ (ΔHf)",
+        "<mark class=r>ต้องระวังเครื่องหมาย +/- ให้ถูกในแต่ละขั้น</mark> — ขั้นดูดพลังงานเป็นบวก ขั้นคายพลังงานเป็นลบ"
+      ]],
+      ["ปัจจัยที่มีผลต่อพลังงานแลตทิซ", [
+        "<mark class=p>ประจุไอออนมาก</mark> → แรงดึงดูดมาก → พลังงานแลตทิซสูง",
+        "<mark class=p>รัศมีไอออนเล็ก</mark> → ไอออนอยู่ใกล้กัน → พลังงานแลตทิซสูง",
+        "<mark class=r>ข้อสอบชอบเอาแค่ประจุมาเทียบโดยไม่ดูรัศมีไอออน</mark> — ต้องพิจารณาทั้งสองปัจจัยร่วมกันเสมอ"
+      ]]
+    ],
+    formula: "วัฏจักร Born-Haber:\nΔHf = ΔHsub + IE + BE + EA + U\nΔHf: พลังงานการเกิดสาร | ΔHsub: พลังงานระเหิด | IE: ไอออไนเซชัน | BE: พลังงานพันธะ | EA: สัมพรรคภาพอิเล็กตรอน | U: พลังงานแลตทิซ",
+    note: "โจทย์คำนวณมักให้ค่ามาครบแล้วขาดค่าเดียว (มักเป็นพลังงานแลตทิซ) ให้แทนค่าลงในสมการ Hess's Law และเช็กเครื่องหมายให้ดี"
+  },
+  {
+    title: "การละลายน้ำ/ตะกอน ของสารประกอบไอออนิก",
+    part: "พันธะไอออนิก",
+    sub: "บทย่อย: กฎการละลาย · การตกตะกอน",
+    intro: "กฎการละลายน้ำของเกลือชนิดต่าง ๆ ใช้ทำนายว่าเมื่อผสมสารละลายไอออนิกสองชนิดแล้วจะเกิดตะกอนหรือไม่",
+    sections: [
+      ["กฎการละลาย: ละลายได้", [
+        "เกลือของโลหะหมู่ IA (Li, Na, K, ...) และ<mark>แอมโมเนียม (NH₄⁺)</mark> <mark class=g>ละลายน้ำได้เสมอ ไม่มีข้อยกเว้น</mark>",
+        "เกลือไนเตรต (NO₃⁻) และแอซิเตต (CH₃COO⁻) ละลายน้ำได้เกือบทั้งหมด",
+        "เกลือคลอไรด์ (Cl⁻) ละลายได้ <mark class=r>ยกเว้น</mark> AgCl, PbCl₂, Hg₂Cl₂",
+        "เกลือซัลเฟต (SO₄²⁻) ละลายได้ <mark class=r>ยกเว้น</mark> BaSO₄, PbSO₄, CaSO₄, SrSO₄, Ag₂SO₄"
+      ]],
+      ["กฎการละลาย: ไม่ละลาย / ตกตะกอน", [
+        "คาร์บอเนต (CO₃²⁻), ฟอสเฟต (PO₄³⁻), ซัลไฟด์ (S²⁻), ไฮดรอกไซด์ (OH⁻) <mark class=r>ไม่ละลายน้ำ ยกเว้น</mark>เมื่อจับกับโลหะหมู่ IA หรือ NH₄⁺"
+      ]]
+    ],
+    note: "เทคนิคจำ: กลุ่ม IA และ NH₄⁺ คือ 'ตัวยกเว้นสากล' ที่ทำให้เกลือละลายได้เสมอไม่ว่าไอออนลบจะเป็นอะไร"
+  },
+  {
+    title: "การเรียกชื่อสารโคเวเลนต์",
+    part: "พันธะโคเวเลนต์",
+    sub: "บทย่อย: คำนำหน้าจำนวนอะตอม · การเรียกชื่อ",
+    intro: "การเรียกชื่อสารโคเวเลนต์ใช้คำนำหน้าบอกจำนวนอะตอมของแต่ละธาตุ ต่างจากสารไอออนิกที่ไม่ต้องระบุจำนวนอะตอม",
+    sections: [
+      ["หลักการเรียกชื่อ", [
+        "ใช้คำนำหน้าบอกจำนวนอะตอม: mono-(1) di-(2) tri-(3) tetra-(4) penta-(5) hexa-(6) hepta-(7)",
+        "<mark class=r>ธาตุแรกไม่ใช้ mono- แต่ธาตุที่สองใช้ mono- ได้เสมอ</mark> เช่น CO = คาร์บอนมอนอกไซด์ (ไม่ใช่ มอนอคาร์บอนมอนอกไซด์)",
+        "ธาตุที่สองลงท้ายด้วย -ide เสมอ"
+      ]],
+      ["ตัวอย่างที่ข้อสอบชอบเอามาสลับ/จับคู่", [
+        "NO = ไนโตรเจนมอนอกไซด์",
+        "NO₂ = ไนโตรเจนไดออกไซด์",
+        "N₂O₃ = ไดไนโตรเจนไตรออกไซด์",
+        "N₂O₅ = ไดไนโตรเจนเพนตะออกไซด์",
+        "SO₂ = ซัลเฟอร์ไดออกไซด์ · SO₃ = ซัลเฟอร์ไตรออกไซด์"
+      ]]
+    ],
+    note: "ระวังโจทย์ที่ให้สูตรใกล้เคียงกัน (NO₂ vs N₂O₃ vs N₂O₅) แล้วให้จับคู่ชื่อ ต้องนับอะตอมให้แม่นทั้งสองธาตุ"
+  },
+  {
+    title: "สูตรโครงสร้างโคเวเลนต์ / VSEPR / รูปร่างโมเลกุล / สภาพขั้ว",
+    part: "พันธะโคเวเลนต์",
+    sub: "บทย่อย: Lewis structure · ทฤษฎี VSEPR · สภาพขั้ว",
+    intro: "หัวข้อที่ออกสอบหนักที่สุด ต้องวาด Lewis structure ให้ถูกก่อน แล้วจึงทำนายรูปร่างและสภาพขั้วของโมเลกุลด้วยทฤษฎี VSEPR",
+    sections: [
+      ["ขั้นตอนวาด Lewis structure", [
+        "นับอิเล็กตรอนวงนอกสุดของทุกอะตอมรวมกัน (บวก/ลบตามประจุถ้าเป็นไอออน)",
+        "วางอะตอมกลาง (มักเป็นอะตอมที่มี EN ต่ำสุด/มีจำนวนน้อยสุด) แล้วต่ออะตอมอื่นด้วยพันธะเดี่ยว",
+        "แจกอิเล็กตรอนคู่โดดเดี่ยวให้ครบออกเตต แล้วปรับเป็นพันธะคู่/สามถ้าอะตอมกลางยังไม่ครบออกเตต"
+      ]],
+      ["ทฤษฎี VSEPR: ทำนายรูปร่างจากจำนวนกลุ่มอิเล็กตรอนรอบอะตอมกลาง", [
+        "2 กลุ่ม ไม่มีคู่โดดเดี่ยว → <mark class=b>เชิงเส้น (linear)</mark> เช่น BeCl₂, CO₂",
+        "3 กลุ่ม ไม่มีคู่โดดเดี่ยว → <mark class=b>สามเหลี่ยมแบนราบ</mark> เช่น BF₃",
+        "3 กลุ่ม มี 1 คู่โดดเดี่ยว → <mark class=b>งอ (bent)</mark> เช่น SO₂",
+        "4 กลุ่ม ไม่มีคู่โดดเดี่ยว → <mark class=b>ทรงสี่หน้า (tetrahedral)</mark> เช่น CH₄",
+        "4 กลุ่ม มี 1 คู่โดดเดี่ยว → <mark class=b>พีระมิดฐานสามเหลี่ยม</mark> เช่น NH₃",
+        "4 กลุ่ม มี 2 คู่โดดเดี่ยว → <mark class=b>งอ (bent)</mark> เช่น H₂O"
+      ]],
+      ["การพิจารณาสภาพขั้วของโมเลกุล", [
+        "ดูขั้วของแต่ละพันธะจากผลต่างค่า EN ก่อน",
+        "<mark class=r>โมเลกุลที่พันธะมีขั้วแต่รูปร่างสมมาตร จะไม่มีขั้วรวม</mark> เพราะเวกเตอร์ขั้วหักล้างกันหมด เช่น CO₂, CCl₄, BF₃",
+        "<mark class=g>โมเลกุลที่มีคู่โดดเดี่ยวบนอะตอมกลาง มักไม่สมมาตร จึงมีขั้วเสมอ</mark> เช่น H₂O, NH₃"
+      ]]
+    ],
+    note: "จุดที่ออกสอบหนักสุด: เทียบ CH₄ - NH₃ - H₂O (อะตอมกลางคาบ 2 เหมือนกัน แต่จำนวนคู่โดดเดี่ยวต่างกัน ทำให้รูปร่างและขั้วต่างกัน)"
+  },
+  {
+    title: "พลังงานพันธะโคเวเลนต์",
+    part: "พันธะโคเวเลนต์",
+    sub: "บทย่อย: ความยาวพันธะ · พลังงานพันธะ (ไม่ออกสมการเคมี)",
+    intro: "ความสัมพันธ์ระหว่างชนิดพันธะ ความยาวพันธะ และพลังงานพันธะ ใช้เปรียบเทียบความแข็งแรง/เสถียรภาพของโมเลกุล",
+    sections: [
+      ["ความสัมพันธ์ระหว่างชนิดพันธะ ความยาว และพลังงานพันธะ", [
+        "พันธะยิ่งสั้น ยิ่งแข็งแรง พลังงานพันธะยิ่งสูง",
+        "<mark class=b>พลังงานพันธะ: พันธะเดี่ยว < พันธะคู่ < พันธะสาม</mark> (เพิ่มขึ้นตามลำดับ)",
+        "<mark class=r>ความยาวพันธะกลับกัน: พันธะสาม < พันธะคู่ < พันธะเดี่ยว</mark> (สั้นลงตามลำดับ) — ข้อสอบชอบเอาสองอย่างนี้มาสลับกันถาม"
+      ]],
+      ["การใช้พลังงานพันธะเปรียบเทียบความเสถียร", [
+        "สารที่มีพลังงานพันธะรวมสูง สลายตัวยากกว่า เสถียรกว่า",
+        "<mark class=p>บทนี้ไม่ออกโจทย์คำนวณพลังงานจากสมการเคมี</mark> เน้นแค่การเปรียบเทียบลำดับ"
+      ]]
+    ],
+    note: "จำสั้น ๆ: พันธะสาม แข็งแรงที่สุด สั้นที่สุด พลังงานพันธะสูงที่สุด"
+  },
+  {
+    title: "สารโคเวเลนต์โครงผลึกร่างตาข่าย",
+    part: "พันธะโคเวเลนต์",
+    sub: "บทย่อย: เพชร · แกรไฟต์ · ซิลิกอนไดออกไซด์",
+    intro: "สารโคเวเลนต์ที่อะตอมทุกตัวยึดกันเป็นร่างตาข่ายต่อเนื่องขนาดใหญ่ ไม่ได้แยกเป็นโมเลกุลเดี่ยว ๆ แบบสารโคเวเลนต์ทั่วไป",
+    sections: [
+      ["ลักษณะสำคัญ", [
+        "อะตอมทุกตัวยึดกันด้วย<mark class=b>พันธะโคเวเลนต์ต่อเนื่องเป็นร่างตาข่ายขนาดใหญ่</mark>",
+        "ตัวอย่างหลัก: เพชร (C), แกรไฟต์ (C), ซิลิกอนไดออกไซด์ (SiO₂)",
+        "จุดหลอมเหลว/จุดเดือดสูงมาก แข็งมาก เพราะต้องทำลายพันธะโคเวเลนต์จำนวนมากพร้อมกัน"
+      ]],
+      ["เพชร vs แกรไฟต์ (จุดที่ออกสอบเทียบกันบ่อยที่สุด)", [
+        "เพชร: อะตอม C ต่อกันเป็น<mark class=b>ทรงสี่หน้า 3 มิติ</mark> แข็งที่สุด <mark class=r>ไม่นำไฟฟ้า</mark> (อิเล็กตรอนถูกยึดในพันธะหมด)",
+        "แกรไฟต์: อะตอม C ต่อกันเป็น<mark class=b>ชั้นระนาบหกเหลี่ยม</mark> ระหว่างชั้นยึดกันด้วยแรงลอนดอนอ่อน ๆ จึงลื่น/หลุดเป็นชั้นได้ และ<mark class=g>นำไฟฟ้าได้</mark> เพราะมีอิเล็กตรอนอิสระเคลื่อนที่ในชั้น"
+      ]]
+    ],
+    note: "ห้ามสับสน: จุดหลอมเหลวสูงมากเหมือนไอออนิก แต่แยกกันด้วยการนำไฟฟ้า (โครงผลึกร่างตาข่ายส่วนใหญ่ไม่นำไฟฟ้า ยกเว้นแกรไฟต์)"
+  },
+  {
+    title: "พันธะโลหะ",
+    part: "พันธะโลหะ & แรงระหว่างโมเลกุล",
+    sub: "บทย่อย: ทะเลอิเล็กตรอน · สมบัติของโลหะ",
+    intro: "พันธะโลหะอธิบายด้วยแบบจำลองทะเลอิเล็กตรอน ซึ่งใช้อธิบายสมบัติเด่นของโลหะได้เกือบทั้งหมด",
+    sections: [
+      ["แบบจำลองทะเลอิเล็กตรอน (electron sea model)", [
+        "ไอออนบวกของโลหะเรียงตัวเป็นโครงร่างที่แน่น ล้อมรอบด้วย<mark class=b>อิเล็กตรอนวงนอกที่เคลื่อนที่อย่างอิสระ</mark> ไม่ยึดติดกับอะตอมใดอะตอมหนึ่ง"
+      ]],
+      ["สมบัติที่อธิบายได้ด้วยแบบจำลองนี้", [
+        "<mark class=g>นำไฟฟ้า/นำความร้อนได้ดี</mark> เพราะอิเล็กตรอนอิสระเคลื่อนที่พาประจุ/พลังงานได้",
+        "<mark class=g>ตีเป็นแผ่น ดึงเป็นเส้นได้ (malleable/ductile)</mark> เพราะชั้นไอออนบวกเลื่อนผ่านกันได้โดยทะเลอิเล็กตรอนยังคงยึดไว้ <mark class=r>ต่างจากผลึกไอออนิกที่เปราะและแตกง่ายเมื่อเลื่อนชั้น</mark> เพราะประจุชนิดเดียวกันเลื่อนมาเจอกันแล้วผลักกัน",
+        "มันวาว เพราะอิเล็กตรอนอิสระสะท้อนแสงได้"
+      ]]
+    ],
+    note: "โจทย์ยอดฮิต: ทำไมโลหะตีเป็นแผ่นได้แต่ไอออนิกเปราะ — ตอบด้วยการเปรียบเทียบทะเลอิเล็กตรอนที่ยืดหยุ่น กับไอออนิกที่ประจุตรงข้ามยึดตำแหน่งตายตัว"
+  },
+  {
+    title: "สมบัติไอออนิก - โคเวเลนต์ - โครงผลึกร่างตาข่าย - พันธะโลหะ",
+    part: "พันธะโลหะ & แรงระหว่างโมเลกุล",
+    sub: "บทย่อย: ตารางเปรียบเทียบ · จุดหลอกสำคัญ",
+    intro: "รวมเปรียบเทียบสมบัติของสารทั้ง 4 ประเภท ข้อสอบมักออกเป็นตาราง/แผนภูมิให้จับคู่สาร → สมบัติ",
+    sections: [
+      ["ตารางเปรียบเทียบสมบัติ", [], "<table><tr><th>ประเภท</th><th>จุดหลอมเหลว</th><th>การนำไฟฟ้า</th><th>ความแข็ง/เปราะ</th></tr><tr><td>ไอออนิก</td><td>สูง</td><td>นำเมื่อหลอมเหลว/ละลายน้ำเท่านั้น</td><td>แข็งแต่เปราะ</td></tr><tr><td>โคเวเลนต์ (โมเลกุล)</td><td>ต่ำ</td><td>ไม่นำ</td><td>อ่อน</td></tr><tr><td>โคเวเลนต์โครงผลึกร่างตาข่าย</td><td>สูงมาก</td><td>ส่วนใหญ่ไม่นำ (ยกเว้นแกรไฟต์)</td><td>แข็งมาก</td></tr><tr><td>โลหะ</td><td>หลากหลาย</td><td>นำได้ดีทุกสถานะ (ของแข็ง/หลอมเหลว)</td><td>เหนียว ตีแผ่นได้</td></tr></table>"],
+      ["จุดหลอกที่ออกสอบบ่อย", [
+        "<mark class=r>สารไอออนิกที่เป็นของแข็งไม่นำไฟฟ้า</mark> — นำไฟฟ้าได้เฉพาะตอนหลอมเหลวหรือละลายน้ำเท่านั้น",
+        "อย่าสับสนจุดหลอมเหลวสูงระหว่างไอออนิกกับโครงผลึกร่างตาข่าย ต้องดูการนำไฟฟ้าช่วยแยก"
+      ]]
+    ],
+    note: "เทคนิคทำข้อสอบ: เจอโจทย์ถามสมบัติ ให้เช็กคำว่า 'สถานะ' ในโจทย์ก่อนเสมอ (ของแข็ง/หลอมเหลว/ละลายน้ำ) เพราะการนำไฟฟ้าเปลี่ยนตามสถานะ"
+  },
+  {
+    title: "แรงระหว่างโมเลกุลโคเวเลนต์ - ลอนดอน - ขั้ว - H-bond",
+    part: "พันธะโลหะ & แรงระหว่างโมเลกุล",
+    sub: "บทย่อย: แรงลอนดอน · แรงระหว่างขั้ว · พันธะไฮโดรเจน",
+    intro: "แรงยึดเหนี่ยวระหว่างโมเลกุลโคเวเลนต์ มีผลโดยตรงต่อจุดเดือด/จุดหลอมเหลวของสาร เป็นหัวข้อที่ออกสอบเป็นโจทย์เปรียบเทียบบ่อยมาก",
+    sections: [
+      ["ชนิดของแรงระหว่างโมเลกุล (เรียงจากอ่อน→แรง)", [
+        "<mark class=b>แรงลอนดอน (London dispersion force)</mark> — เกิดจากไดโพลชั่วคราว มีอยู่ใน<mark>ทุกโมเลกุลไม่มีข้อยกเว้น</mark> (รวมถึงโมเลกุลมีขั้วและมี H-bond ด้วย)",
+        "<mark class=b>แรงระหว่างขั้ว (dipole-dipole)</mark> — เกิดเฉพาะในโมเลกุลมีขั้ว",
+        "<mark class=b>พันธะไฮโดรเจน (H-bond)</mark> — เกิดเมื่อ H สร้างพันธะโดยตรงกับ F, O หรือ N เท่านั้น เป็นแรงที่แรงที่สุดในกลุ่มนี้"
+      ]],
+      ["หลักการเปรียบเทียบจุดเดือด/จุดหลอมเหลว", [
+        "โมเลกุลที่มี H-bond จะมีจุดเดือดสูงผิดปกติเมื่อเทียบกับโมเลกุลมวลใกล้เคียงที่ไม่มี H-bond เช่น H₂O เดือดสูงกว่า H₂S ทั้งที่มวลโมเลกุลน้อยกว่า",
+        "<mark class=r>ห้ามด่วนสรุปว่า 'มีขั้ว = เดือดสูงกว่าเสมอ'</mark> เพราะโมเลกุลไม่มีขั้วขนาดใหญ่มาก (แรงลอนดอนแรง) อาจมีจุดเดือดสูงกว่าโมเลกุลมีขั้วขนาดเล็กได้"
+      ]]
+    ],
+    note: "โจทย์ยอดฮิต: เรียงลำดับจุดเดือดของสารกลุ่มเดียวกัน — ตัวที่มี H-bond (NH₃, H₂O, HF) จะเดือดสูงผิดปกติกว่าตัวอื่นในหมู่เดียวกัน"
+  },
+
+  // ★ บทสุดท้าย = หน้า Quiz (ต้องอยู่ท้ายสุดเสมอ)
+  { title: "Quiz", part: "Quiz", sub: "", intro: "", sections: [] }
+];
+
+/* ─────────────── ③ QUIZ : คลังข้อสอบ ───────────────
+   ทุกข้อ = [ "โจทย์", "ตัวเลือก A", "ตัวเลือก B", "ตัวเลือก C", "ตัวเลือก D", "เฉลย (A/B/C/D)", "คำอธิบายเฉลย" ]
+   ช่องที่ 7 "คำอธิบายเฉลย" ไม่จำเป็น (ไม่ใส่ = ไม่มีปุ่มคำอธิบาย) — ถ้าใส่ จะมีปุ่ม
+   "💡 ทำไมถึงตอบแบบนี้?" โผล่ขึ้นใต้ทุกข้อ "หลังจากกดส่งคำตอบ/เฉลยแล้ว" ให้ผู้เรียนกดดูเหตุผลได้
+   ★ ออบเจกต์สุดท้ายของ quizBanks = ชุด "รวมทุกบท · จำลองสอบ" (ต้องมีเสมอ และอยู่ท้ายสุด)
+     ชุดนี้จะเปิดขึ้นเป็นค่าเริ่มต้นในหน้า Quiz
+*/
+const q1 = [
+  ["สูตรสารประกอบไอออนิกที่เกิดจาก Al³⁺ และ SO₄²⁻ คือข้อใด?", "Al(SO₄)₃", "Al₂(SO₄)₃", "Al₃(SO₄)₂", "AlSO₄", "B", "ใช้หลักไขว้ประจุ Al³⁺ กับ SO₄²⁻ ประจุไม่เท่ากัน ต้องไขว้เลข 3 ไปเป็นตัวห้อยของ SO₄ และเลข 2 ไปเป็นตัวห้อยของ Al ได้ Al₂(SO₄)₃ ซึ่งเป็นอัตราส่วนอย่างง่ายที่สุดแล้ว"],
+  ["สารประกอบ Fe₂O₃ ควรเรียกชื่อว่าอย่างไร?", "ไอรอนออกไซด์", "ไอรอน(II)ออกไซด์", "ไอรอน(III)ออกไซด์", "ไดไอรอนไตรออกไซด์", "C", "Fe เป็นโลหะทรานซิชันที่มีเลขออกซิเดชันได้หลายค่า O²⁻ 3 ตัว = -6 ดังนั้น Fe รวมต้องเป็น +6 หารด้วย 2 อะตอม = Fe³⁺ จึงต้องระบุเลขโรมัน (III) กำกับเสมอ"],
+  ["ไอออนลบข้อใดจับคู่ชื่อผิด?", "NO₃⁻ = ไนเตรต", "NO₂⁻ = ไนไตรต์", "SO₃²⁻ = ซัลเฟต", "PO₄³⁻ = ฟอสเฟต", "C", "SO₃²⁻ คือซัลไฟต์ (sulfite) ไม่ใช่ซัลเฟต ส่วน SO₄²⁻ ต่างหากที่เป็นซัลเฟต เป็นคู่ที่ข้อสอบชอบเอามาหลอกบ่อยที่สุด"]
+];
+const q2 = [
+  ["ขั้นตอนใดในวัฏจักร Born-Haber ที่มักเป็นขั้นคายพลังงาน (exothermic) มากที่สุด?", "พลังงานไอออไนเซชัน (IE)", "พลังงานระเหิด", "พลังงานแลตทิซ (lattice energy)", "พลังงานสลายพันธะ", "C", "พลังงานแลตทิซเกิดจากไอออนบวกและไอออนลบในสถานะแก๊สรวมกันเป็นผลึกของแข็ง เป็นกระบวนการที่คายพลังงานมากที่สุดในวัฏจักร ต่างจากอีกสามขั้นที่ส่วนใหญ่ดูดพลังงาน"],
+  ["สารประกอบไอออนิกคู่ใดน่าจะมีพลังงานแลตทิซสูงที่สุด?", "NaCl (ประจุ+1/-1, รัศมีใหญ่)", "MgO (ประจุ+2/-2, รัศมีเล็ก)", "KBr (ประจุ+1/-1, รัศมีใหญ่มาก)", "NaBr (ประจุ+1/-1, รัศมีใหญ่)", "B", "พลังงานแลตทิซสูงเมื่อประจุไอออนมากและรัศมีไอออนเล็ก MgO มีทั้งประจุสูงกว่า (+2/-2) และรัศมีไอออนเล็กกว่าตัวเลือกอื่น จึงมีแรงดึงดูดระหว่างไอออนมากที่สุด"],
+  ["ข้อใดคือลำดับขั้นตอนที่ถูกต้องของวัฏจักร Born-Haber?", "ระเหิด → IE → สลายพันธะ → EA → แลตทิซ", "IE → ระเหิด → EA → สลายพันธะ → แลตทิซ", "สลายพันธะ → EA → ระเหิด → IE → แลตทิซ", "แลตทิซ → ระเหิด → IE → สลายพันธะ → EA", "A", "โลหะของแข็งระเหิดเป็นแก๊สก่อน แล้วจึงเกิดไอออไนเซชัน ส่วนอโลหะต้องสลายพันธะเป็นอะตอมเดี่ยวก่อนจึงรับอิเล็กตรอน (EA) แล้วไอออนทั้งสองจึงรวมกันเป็นผลึก (แลตทิซ) เป็นขั้นสุดท้าย"]
+];
+const q3 = [
+  ["สารประกอบข้อใดละลายน้ำได้เสมอไม่มีข้อยกเว้น?", "BaSO₄", "AgCl", "(NH₄)₂CO₃", "CaCO₃", "C", "เกลือของแอมโมเนียม (NH₄⁺) ละลายน้ำได้เสมอไม่ว่าจะจับกับไอออนลบชนิดใด ส่วน BaSO₄, AgCl, CaCO₃ ล้วนเป็นสารที่ไม่ละลายน้ำ (ตกตะกอน)"],
+  ["เมื่อผสมสารละลาย Pb(NO₃)₂ กับ Na₂SO₄ จะเกิดตะกอนของสารใด?", "NaNO₃", "PbSO₄", "Pb(NO₃)₂ เดิม", "ไม่เกิดตะกอน", "B", "PbSO₄ เป็นหนึ่งในซัลเฟตที่ไม่ละลายน้ำ (ข้อยกเว้นของกฎซัลเฟตละลายได้) จึงตกตะกอน ส่วน NaNO₃ ละลายน้ำได้ดีเพราะเป็นทั้งเกลือไนเตรตและเกลือของโลหะหมู่ IA"],
+  ["ไอออนลบข้อใดไม่ละลายน้ำ (ยกเว้นจับกับ IA หรือ NH₄⁺)?", "ไนเตรต (NO₃⁻)", "คลอไรด์ (Cl⁻)", "ฟอสเฟต (PO₄³⁻)", "แอซิเตต (CH₃COO⁻)", "C", "ฟอสเฟตเป็นกลุ่มไอออนลบที่ไม่ละลายน้ำเป็นส่วนใหญ่ ยกเว้นเมื่อจับกับโลหะหมู่ IA หรือ NH₄⁺ ต่างจากไนเตรตและแอซิเตตที่ละลายน้ำได้เกือบทั้งหมด"]
+];
+const q4 = [
+  ["N₂O₅ มีชื่อว่าอย่างไร?", "ไนโตรเจนเพนตะออกไซด์", "ไดไนโตรเจนเพนตะออกไซด์", "โมโนไนโตรเจนเพนตะออกไซด์", "ไนโตรเจนไดออกไซด์", "B", "มีอะตอม N 2 อะตอมต้องใส่คำนำหน้า 'ได-' และมี O 5 อะตอมใช้คำนำหน้า 'เพนตะ-' รวมเป็นไดไนโตรเจนเพนตะออกไซด์"],
+  ["CO เรียกชื่อว่าอย่างไร?", "มอนอคาร์บอนมอนอกไซด์", "คาร์บอนมอนอกไซด์", "คาร์บอนไดออกไซด์", "ไดคาร์บอนออกไซด์", "B", "ธาตุแรก (คาร์บอน) ไม่ใช้คำนำหน้า mono- แม้จะมีอะตอมเดียว แต่ธาตุที่สอง (ออกซิเจน) ใช้ mono- ได้ จึงเรียกว่าคาร์บอนมอนอกไซด์"],
+  ["สูตรของซัลเฟอร์ไตรออกไซด์คือข้อใด?", "SO₂", "SO₃", "S₂O₃", "S₃O", "B", "'ไตร-' หมายถึงออกซิเจน 3 อะตอม โดยไม่มีคำนำหน้าที่ธาตุแรก (ซัลเฟอร์มีอะตอมเดียว) จึงได้สูตร SO₃"]
+];
+const q5 = [
+  ["โมเลกุล NH₃ มีรูปร่างและสภาพขั้วตามข้อใด?", "ทรงสี่หน้า ไม่มีขั้ว", "พีระมิดฐานสามเหลี่ยม มีขั้ว", "งอ ไม่มีขั้ว", "เชิงเส้น มีขั้ว", "B", "N มี 3 พันธะกับ H และมีคู่โดดเดี่ยว 1 คู่ รวม 4 กลุ่มอิเล็กตรอน รูปร่างจึงเป็นพีระมิดฐานสามเหลี่ยม และเนื่องจากไม่สมมาตร (มีคู่โดดเดี่ยว) จึงมีขั้ว"],
+  ["โมเลกุลใดที่พันธะมีขั้วแต่โมเลกุลโดยรวมไม่มีขั้ว?", "H₂O", "NH₃", "CO₂", "HCl", "C", "CO₂ มีรูปร่างเชิงเส้นสมมาตร แม้พันธะ C=O แต่ละพันธะจะมีขั้ว แต่เวกเตอร์ขั้วทั้งสองข้างหักล้างกันพอดี ทำให้โมเลกุลโดยรวมไม่มีขั้ว ต่างจาก H₂O และ NH₃ ที่มีคู่โดดเดี่ยวทำให้ไม่สมมาตร"],
+  ["อะตอมกลางที่มี 4 กลุ่มอิเล็กตรอน โดยมีคู่โดดเดี่ยว 2 คู่ จะมีรูปร่างโมเลกุลแบบใด?", "ทรงสี่หน้า", "พีระมิดฐานสามเหลี่ยม", "งอ (bent)", "สามเหลี่ยมแบนราบ", "C", "กรณีนี้ตรงกับ H₂O ซึ่งมี 2 พันธะ O-H และคู่โดดเดี่ยว 2 คู่ รูปร่างโมเลกุลที่ได้คือรูปงอ (bent) มุมพันธะประมาณ 104.5°"]
+];
+const q6 = [
+  ["ข้อใดเรียงลำดับพลังงานพันธะจากน้อยไปมากได้ถูกต้อง?", "C≡C < C=C < C-C", "C-C < C=C < C≡C", "C=C < C-C < C≡C", "พลังงานพันธะทั้งสามเท่ากัน", "B", "พันธะยิ่งมีจำนวนคู่อิเล็กตรอนร่วมมาก ยิ่งแข็งแรงและพลังงานพันธะสูง ลำดับจากน้อยไปมากคือ พันธะเดี่ยว < พันธะคู่ < พันธะสาม"],
+  ["พันธะชนิดใดมีความยาวพันธะสั้นที่สุด?", "พันธะเดี่ยว", "พันธะคู่", "พันธะสาม", "ยาวเท่ากันทุกชนิด", "C", "พันธะสามมีคู่อิเล็กตรอนร่วมมากที่สุด ดึงดูดอะตอมทั้งสองเข้าใกล้กันมากที่สุด จึงมีความยาวพันธะสั้นที่สุด (สวนทางกับพลังงานพันธะที่สูงที่สุด)"],
+  ["สารที่มีพลังงานพันธะรวมสูง มีแนวโน้มเป็นอย่างไร?", "สลายตัวง่าย ไม่เสถียร", "สลายตัวยาก เสถียรกว่า", "ไม่มีความสัมพันธ์กับความเสถียร", "ละลายน้ำได้ดีขึ้น", "B", "พลังงานพันธะคือพลังงานที่ต้องใช้ทำลายพันธะ ถ้าพันธะแข็งแรง (พลังงานพันธะสูง) ก็ต้องใช้พลังงานมากในการสลาย จึงสลายตัวยากกว่าและเสถียรกว่า"]
+];
+const q7 = [
+  ["เหตุใดแกรไฟต์จึงนำไฟฟ้าได้ในขณะที่เพชรไม่นำไฟฟ้า?", "แกรไฟต์มีพันธะไอออนิกแทรกอยู่", "แกรไฟต์มีโครงสร้างเป็นชั้นและมีอิเล็กตรอนอิสระเคลื่อนที่ในชั้นได้", "เพชรมีมวลโมเลกุลมากกว่า", "แกรไฟต์ละลายน้ำได้", "B", "แกรไฟต์เป็นชั้นระนาบหกเหลี่ยม อะตอม C แต่ละตัวสร้างพันธะโคเวเลนต์เพียง 3 พันธะ เหลืออิเล็กตรอนอิสระ 1 ตัวต่ออะตอมเคลื่อนที่ได้ในระนาบชั้น จึงนำไฟฟ้าได้ ส่วนเพชรทุกอะตอม C สร้างพันธะครบ 4 พันธะ ไม่มีอิเล็กตรอนอิสระ"],
+  ["SiO₂ (ควอตซ์) มีสมบัติตรงกับข้อใด?", "จุดหลอมเหลวต่ำ ละลายน้ำง่าย", "จุดหลอมเหลวสูงมาก แข็งมาก", "นำไฟฟ้าได้ดีทุกสถานะ", "ตีเป็นแผ่นบางได้", "B", "SiO₂ เป็นสารโคเวเลนต์โครงผลึกร่างตาข่าย อะตอมทุกตัวยึดกันด้วยพันธะโคเวเลนต์ต่อเนื่องทั่วผลึก ต้องใช้พลังงานมหาศาลทำลายพันธะจำนวนมาก จึงมีจุดหลอมเหลวสูงมากและแข็งมาก"],
+  ["เหตุใดแกรไฟต์จึงลื่นและหลุดเป็นชั้นได้ง่าย?", "พันธะโคเวเลนต์ในแต่ละชั้นอ่อนมาก", "ระหว่างชั้นยึดกันด้วยแรงลอนดอนที่อ่อน จึงเลื่อนผ่านกันได้ง่าย", "แกรไฟต์มีประจุไฟฟ้าผลักกัน", "แกรไฟต์ละลายน้ำได้บางส่วน", "B", "ภายในแต่ละชั้นของแกรไฟต์ยึดกันด้วยพันธะโคเวเลนต์ที่แข็งแรงมาก แต่ระหว่างชั้นยึดกันด้วยแรงแวนเดอร์วาลส์ (แรงลอนดอน) ที่อ่อนกว่ามาก ทำให้ชั้นเลื่อนผ่านกันได้ง่าย"]
+];
+const q8 = [
+  ["เหตุใดโลหะจึงนำไฟฟ้าได้ดี?", "มีพันธะไอออนิกแทรกอยู่", "มีอิเล็กตรอนอิสระเคลื่อนที่ได้ทั่วก้อนโลหะ", "โลหะละลายน้ำได้ดี", "โลหะมีความหนาแน่นสูง", "B", "ตามแบบจำลองทะเลอิเล็กตรอน อิเล็กตรอนวงนอกของอะตอมโลหะไม่ยึดติดกับอะตอมใดอะตอมหนึ่ง แต่เคลื่อนที่อิสระทั่วก้อนโลหะ เมื่อมีสนามไฟฟ้าจึงเคลื่อนที่พาประจุได้ทันที"],
+  ["เหตุใดโลหะจึงตีเป็นแผ่นบางได้โดยไม่แตกหัก ต่างจากผลึกไอออนิก?", "โลหะมีมวลอะตอมน้อยกว่า", "ชั้นไอออนบวกในโลหะเลื่อนผ่านกันได้โดยทะเลอิเล็กตรอนยังคงยึดไว้ ส่วนไอออนิกเมื่อเลื่อนชั้นจะเกิดประจุชนิดเดียวกันผลักกันจนแตก", "โลหะไม่มีพันธะเคมี", "ไอออนิกมีความหนาแน่นสูงกว่า", "B", "เมื่อโลหะถูกตีหรือดึง ชั้นไอออนบวกเลื่อนผ่านกันได้โดยยังมีทะเลอิเล็กตรอนล้อมรอบยึดโครงสร้างไว้ แต่ในผลึกไอออนิก เมื่อชั้นไอออนเลื่อน จะทำให้ไอออนประจุชนิดเดียวกันมาอยู่ตรงกัน เกิดแรงผลักทำให้ผลึกแตก (เปราะ)"],
+  ["สมบัติใดของโลหะที่อธิบายได้ด้วยอิเล็กตรอนอิสระที่สะท้อนแสง?", "การนำไฟฟ้า", "การนำความร้อน", "ความมันวาว", "การตีเป็นแผ่นได้", "C", "อิเล็กตรอนอิสระที่เคลื่อนที่บนผิวโลหะดูดกลืนและปลดปล่อยพลังงานแสงในช่วงที่ตามองเห็นได้ ทำให้เกิดการสะท้อนแสงและมองเห็นเป็นความมันวาวแบบโลหะ"]
+];
+const q9 = [
+  ["สารประกอบไอออนิกที่เป็นของแข็งจะนำไฟฟ้าได้หรือไม่?", "นำได้ดีเสมอ", "ไม่นำไฟฟ้า เพราะไอออนถูกยึดตรึงในโครงผลึก ไม่สามารถเคลื่อนที่ได้อิสระ", "นำได้เฉพาะโลหะทรานซิชัน", "นำได้เท่ากับโลหะ", "B", "ในสถานะของแข็ง ไอออนบวกและไอออนลบถูกยึดตรึงในตำแหน่งคงที่ของโครงผลึก ไม่สามารถเคลื่อนที่พาประจุได้ ต้องหลอมเหลวหรือละลายน้ำก่อนไอออนจึงจะเคลื่อนที่ได้อิสระและนำไฟฟ้าได้"],
+  ["สารกลุ่มใดที่โดยทั่วไปมีจุดหลอมเหลวต่ำที่สุด?", "สารประกอบไอออนิก", "โลหะ", "สารโคเวเลนต์โมเลกุล (โคเวเลนต์ธรรมดา)", "สารโคเวเลนต์โครงผลึกร่างตาข่าย", "C", "สารโคเวเลนต์โมเลกุลยึดกันระหว่างโมเลกุลด้วยแรงแวนเดอร์วาลส์ที่อ่อนกว่าพันธะเคมีมาก จึงใช้พลังงานน้อยในการแยกโมเลกุล ทำให้มีจุดหลอมเหลว/จุดเดือดต่ำกว่าสารกลุ่มอื่นอย่างชัดเจน"],
+  ["ข้อใดกล่าวถูกต้องเกี่ยวกับการนำไฟฟ้าของโลหะเทียบกับไอออนิก?", "โลหะนำไฟฟ้าได้เฉพาะตอนหลอมเหลวเท่านั้น เหมือนไอออนิก", "โลหะนำไฟฟ้าได้ทั้งของแข็งและหลอมเหลว ต่างจากไอออนิกที่นำได้เฉพาะหลอมเหลว/ละลายน้ำ", "ทั้งสองชนิดไม่นำไฟฟ้าในทุกสถานะ", "ไอออนิกนำไฟฟ้าได้ดีกว่าโลหะเสมอ", "B", "โลหะมีอิเล็กตรอนอิสระเคลื่อนที่ได้ตลอดเวลาไม่ว่าจะเป็นของแข็งหรือหลอมเหลว จึงนำไฟฟ้าได้ทั้งสองสถานะ ในขณะที่ไอออนิกต้องอยู่ในสถานะที่ไอออนเคลื่อนที่ได้อิสระ (หลอมเหลวหรือละลายน้ำ) เท่านั้นจึงจะนำไฟฟ้าได้"]
+];
+const q10 = [
+  ["เหตุใด H₂O จึงมีจุดเดือดสูงกว่า H₂S ทั้งที่มวลโมเลกุลน้อยกว่า?", "H₂O มีแรงลอนดอนมากกว่า", "H₂O มีพันธะไฮโดรเจนซึ่งแรงกว่าแรงระหว่างขั้วธรรมดาที่มีใน H₂S", "H₂O มีพันธะไอออนิก", "H₂S ไม่มีแรงระหว่างโมเลกุลเลย", "B", "ออกซิเจนมีค่า EN สูงและอะตอมเล็ก ทำให้ H ใน H₂O สร้างพันธะไฮโดรเจนกับโมเลกุลข้างเคียงได้ ซึ่งแข็งแรงกว่าแรงระหว่างขั้วธรรมดาที่มีใน H₂S (S ไม่สร้าง H-bond) จึงต้องใช้พลังงานมากกว่าในการทำให้ H₂O เดือด"],
+  ["แรงลอนดอน (London dispersion force) พบได้ในโมเลกุลชนิดใด?", "เฉพาะโมเลกุลไม่มีขั้วเท่านั้น", "เฉพาะโมเลกุลมีขั้วเท่านั้น", "พบในทุกโมเลกุล ไม่ว่าจะมีขั้วหรือไม่มีขั้ว", "พบเฉพาะในสารประกอบไอออนิก", "C", "แรงลอนดอนเกิดจากการเคลื่อนที่ของอิเล็กตรอนที่ทำให้เกิดไดโพลชั่วคราว เกิดขึ้นได้ในทุกโมเลกุลไม่ว่าจะมีขั้วหรือไม่ รวมถึงโมเลกุลที่มีพันธะไฮโดรเจนด้วย"],
+  ["ข้อใดถูกต้องเกี่ยวกับความสัมพันธ์ระหว่างขั้วโมเลกุลกับจุดเดือด?", "โมเลกุลมีขั้วจะเดือดสูงกว่าโมเลกุลไม่มีขั้วเสมอไม่มีข้อยกเว้น", "โมเลกุลไม่มีขั้วขนาดใหญ่มากอาจมีจุดเดือดสูงกว่าโมเลกุลมีขั้วขนาดเล็กได้ เพราะแรงลอนดอนแรงขึ้นตามขนาดโมเลกุล", "ขั้วของโมเลกุลไม่มีผลต่อจุดเดือดเลย", "จุดเดือดขึ้นกับมวลอะตอมเพียงอย่างเดียว", "B", "แม้โมเลกุลมีขั้วจะมีแรงดึงดูดเพิ่มจากไดโพล แต่แรงลอนดอนก็เพิ่มขึ้นตามขนาด/มวลโมเลกุล ดังนั้นโมเลกุลไม่มีขั้วที่มีขนาดใหญ่มาก (เช่น I₂) อาจมีจุดเดือดสูงกว่าโมเลกุลมีขั้วขนาดเล็ก (เช่น HCl) ได้ ห้ามด่วนสรุปกฎเกณฑ์ตายตัว"]
+];
+
+const quizBanks = [
+  { label: "1. การเรียกชื่อและเขียนสูตรไอออนิก", questions: q1 },
+  { label: "2. พลังงานกับการเกิดสารประกอบไอออนิก (Born-Haber)", questions: q2 },
+  { label: "3. การละลายน้ำ/ตะกอนของสารประกอบไอออนิก", questions: q3 },
+  { label: "4. การเรียกชื่อสารโคเวเลนต์", questions: q4 },
+  { label: "5. VSEPR / รูปร่างโมเลกุล / สภาพขั้ว", questions: q5 },
+  { label: "6. พลังงานพันธะโคเวเลนต์", questions: q6 },
+  { label: "7. โคเวเลนต์โครงผลึกร่างตาข่าย", questions: q7 },
+  { label: "8. พันธะโลหะ", questions: q8 },
+  { label: "9. เปรียบเทียบสมบัติสารทั้ง 4 ประเภท", questions: q9 },
+  { label: "10. แรงระหว่างโมเลกุล (ลอนดอน-ขั้ว-H-bond)", questions: q10 },
+
+  // ★ ชุดสุดท้าย = รวมทุกบท
+  { label: "รวมทุกบท · จำลองสอบ 30 ข้อ", questions: [...q1, ...q2, ...q3, ...q4, ...q5, ...q6, ...q7, ...q8, ...q9, ...q10] }
+];
+
+// (ไม่จำเป็น) ไอคอนของแต่ละชุดใน popup เลือกบทฝึก — ไม่กำหนด = ใช้ชุดสีเริ่มต้น
+// const quizIcons = ["📘","📗","📙","📕"];
+</script>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     ④ ENGINE — ตัวแสดงผลกลางของทุกวิชา  (ไม่ต้องแก้)
+     ════════════════════════════════════════════════════════════════════ -->
+<script>
+/* ---------- ตั้งค่าหน้าจากบล็อก ① SUBJECT ---------- */
+(function applySubjectConfig(){
+  const S=SUBJECT||{};
+  const name=S.name||"ชื่อวิชา", icon=S.icon||"📖";
+  const set=(id,txt)=>{const el=document.getElementById(id); if(el) el.textContent=txt;};
+  document.title=name+" | "+(S.level||"ม.4");
+  set("subjLogo",icon+" "+(S.logo||name));
+  set("subjBadge",S.badge||("แนวข้อสอบปลายภาค · "+name));
+  set("subjTitle",name);
+  set("subjAccent",S.titleAccent==null?"แนวข้อสอบปลายภาค":S.titleAccent);
+  set("subjDesc",S.desc||"");
+  set("subjFooter",S.footer||(icon+" "+name+" · ใช้ทบทวนก่อนสอบ"));
+  const sr=document.getElementById("search");
+  if(sr) sr.placeholder="ค้นหาบทเรียน"+(S.searchHint?" เช่น "+S.searchHint+"...":"");
+})();
+
+const isQuizTopic=(t,i)=> i===topics.length-1;   // บทสุดท้ายเป็นหน้า Quiz เสมอ
+let currentTopic=0;                               // บทที่เปิดอยู่ (ใช้ไฮไลท์ในเมนู)
+
+/* ---------- เมนูบทเรียน ---------- */
+const menu=document.getElementById("menuList");
+function buildMenu(list=topics){
+ menu.innerHTML="";
+ let lastPart="";
+ if(!list.length){
+   const empty=document.createElement("div");
+   empty.className="menu-section";
+   empty.textContent="ไม่พบบทที่ค้นหา";
+   menu.appendChild(empty);
+   return;
+ }
+ list.forEach((t)=>{
+   const original=topics.indexOf(t);
+   const title=t.title.trim();
+
+   // หัวกลุ่ม: ใช้ t.part ก่อน ถ้าไม่มีให้แยกจาก "หมวด · ชื่อบท"; บท Quiz จัดเข้ากลุ่ม Quiz
+   let part=t.part ? t.part : (title.includes("·") ? title.split("·")[0].trim() : "");
+   if(!t.part && (/^(mini\s*)?quiz\b/i.test(title) || isQuizTopic(t,original))) part="Quiz";
+
+   if(part!==lastPart){
+     const label=document.createElement("div");
+     label.className="menu-section";
+     label.textContent=part || "เนื้อหาทั้งหมด";
+     menu.appendChild(label);
+     lastPart=part;
+   }
+
+   const b=document.createElement("button");
+   b.className="topic-btn"+(original===currentTopic?" active":"");
+   b.dataset.topicIndex=original;
+
+   const cleanTitle=(!t.part && title.includes("·"))
+     ? title.split("·").slice(1).join("·").trim()
+     : title;
+   const cleanSub=(t.sub||"").replace(/^บทย่อย:\s*/,"").trim();
+
+   b.innerHTML=`<span class="topic-num">${String(original+1).padStart(2,"0")}</span>
+   <span class="topic-copy">
+     <span class="topic-label">${cleanTitle}</span>
+     <span class="topic-sub">${cleanSub}</span>
+   </span>
+   <span class="topic-arrow">›</span>`;
+
+   b.onclick=()=>{showTopic(original);closeMenu()};
+   menu.appendChild(b);
+ });
+}
+buildMenu();
+
+function filterMenu(){
+ const q=document.getElementById("search").value.toLowerCase();
+ buildMenu(topics.filter(t=>((t.title||"")+" "+(t.part||"")+" "+(t.sub||"")+" "+(t.intro||"")).toLowerCase().includes(q)));
+}
+
+/* ---------- แสดงบทเรียน ---------- */
+function renderFormula(text){
+ if(!text) return "";
+ const lines=text.split("\n").map(l=>l.trim()).filter(Boolean);
+ const rows=lines.map(line=>{
+  if(line.includes("=")){
+   return `<div class="f-row"><div class="f-eq">${line}</div></div>`;
+  }
+  if(line.includes("|")){
+   const chips=line.split("|").map(seg=>`<span class="f-chip">${seg.trim()}</span>`).join("");
+   return `<div class="f-row"><div class="f-chips">${chips}</div></div>`;
+  }
+  const ci=line.indexOf(":");
+  if(ci!==-1){
+   const label=line.slice(0,ci).trim();
+   const rest=line.slice(ci+1).trim();
+   const items=rest.split(",").map(x=>x.trim()).filter(Boolean);
+   if(items.length>1){
+    const chips=items.map(x=>`<span class="f-chip">${x}</span>`).join("");
+    return `<div class="f-row"><span class="f-label">${label}</span><div class="f-chips">${chips}</div></div>`;
+   }
+   return `<div class="f-row f-plain"><span>▸</span><span><b>${label}:</b> ${rest}</span></div>`;
+  }
+  return `<div class="f-row f-plain"><span>▸</span><span>${line}</span></div>`;
+ }).join("");
+ return `<div class="f-title">🧮 สูตร / หลักจำ</div>${rows}`;
+}
+function showTopic(i){
+ const t=topics[i];
+ if(!t) return;
+ const last=i===topics.length-1;
+ let body="";
+ if(t.sections && t.sections.length){
+  t.sections.forEach((s,n)=>{
+   try{
+    const items=Array.isArray(s[1])?s[1]:(s[1]?[s[1]]:[]);   // รับทั้ง array และ string เดี่ยว ๆ
+    body+=`<section class="sec-card"><h3>${s[0]||""}</h3>${items.length?`<ul>${items.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}${s[2]||""}</section>`;
+   }catch(err){
+    console.error("[บท "+(i+1)+" กล่อง "+(n+1)+"]",err);
+    body+=`<section class="sec-card"><h3>⚠️ กล่องนี้ข้อมูลผิดรูปแบบ</h3><p class="small">บท ${i+1} กล่องที่ ${n+1}</p></section>`;
+   }
+  });
+ }
+ let quiz="";
+ if(last && quizBanks.length){
+  quiz=`<div class="quiz"><h3>📝 Quiz</h3>
+   <div class="quiz-bar" id="quizBar"><button type="button" class="qb-reset" onclick="resetQuiz()">↺ ทำใหม่</button><div class="qb-score" id="qbScore"><small>คะแนน</small><b>– / –</b></div></div><button type="button" id="quizPickBtn" class="quiz-pick-btn" onclick="openQuizPicker(event)">
+      <span class="qp-ico" id="qpIco">🎯</span>
+      <span class="qp-txt"><span class="qp-lab">📚 เลือกบทฝึก</span><span class="qp-cur" id="qpCur">—</span><span class="qp-sub" id="qpSub"></span></span>
+      <span class="qp-go">เลือกบท ▾</span>
+    </button><div id="quizArea"></div>
+   <p class="small">หมายเหตุ: คำถามอ้างอิงจากเนื้อหาที่สรุปไว้ในแต่ละบท</p></div>`;
+ }
+ document.getElementById("page").innerHTML=`
+  <div class="topic-head">
+   <div class="topic-no">${i+1}</div>
+   <div><h2>${t.title}</h2>
+   ${t.sub?`<div class="subtitle">${t.sub}</div>`:""}</div>
+  </div>
+  ${t.intro?`<p class="intro">${t.intro}</p>`:""}
+  ${body}
+  ${t.formula?`<div class="formula">${renderFormula(t.formula)}</div>`:""}
+  ${t.note?`<div class="note"><b>⭐ จุดที่ควรจำ</b><br>${t.note}</div>`:""}
+  ${quiz}
+  <div class="nav">
+   <button onclick="showTopic(${i-1})" ${i===0?"disabled":""}>← บทก่อนหน้า</button>
+   <button onclick="showTopic(${i+1})" ${i===topics.length-1?"disabled":""}>บทถัดไป →</button>
+  </div>`;
+ if(last && quizBanks.length) renderQuiz(quizBanks.length-1);
+ // ตารางที่กว้างเกินจอ → ห่อให้เลื่อนซ้าย-ขวาในกล่องตัวเอง (ไม่ดันทั้งหน้า)
+ document.querySelectorAll("#page table").forEach(tb=>{
+  if(tb.parentElement.classList.contains("tbl-scroll")) return;
+  const w=document.createElement("div"); w.className="tbl-scroll";
+  tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+ });
+ currentTopic=i;
+ document.querySelectorAll(".topic-btn").forEach(b=>{
+  b.classList.toggle("active",+b.dataset.topicIndex===i);
+ });
+ document.getElementById("progress").style.width=((i+1)/topics.length*100)+"%";
+ document.getElementById("progressText").textContent="บท "+(i+1)+" / "+topics.length;
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- Quiz ---------- */
+function renderQuiz(bankIndex){
+ const bank=quizBanks[bankIndex];
+ if(!bank) return;
+ qzCurrent=bankIndex;
+ qzSubmitted=false;
+ const curEl=document.getElementById("qpCur");
+ if(curEl) curEl.textContent=String(bank.label).replace(/^\d+\.\s*/,"");
+ const subEl=document.getElementById("qpSub");
+ if(subEl) subEl.textContent=bank.questions.length+" ข้อ · "+(bankIndex===quizBanks.length-1?"ทบทวนรวม":"ฝึกเฉพาะบท");
+ const icoEl=document.getElementById("qpIco");
+ if(icoEl) icoEl.textContent=qzIcon(bankIndex);
+ const area=document.getElementById("quizArea");
+ if(!area) return;
+ const L=["A","B","C","D"];
+ if(!bank.questions.length){
+  area.innerHTML='<p class="small">ยังไม่มีข้อสอบในชุดนี้</p>';
+  const sc0=document.getElementById("qbScore");
+  if(sc0){ sc0.className="qb-score"; sc0.innerHTML="<small>ข้อสอบ</small><b>0 ข้อ</b>"; }
+  return;
+ }
+ area.innerHTML=bank.questions.map((q,n)=>`
+  <div class="q" data-i="${n}" data-correct="${String(q[5]==null?"":q[5]).trim().toUpperCase()}">
+   <b>${n+1}) ${q[0]}</b>
+   ${L.map((l,k)=>(q[k+1]==null||q[k+1]==="")?"":`<button type="button" class="opt" data-l="${l}" onclick="pickAnswer(this)">${l}. ${q[k+1]}</button>`).join("")}
+   <div class="answer"></div>
+   ${q[6]?`<button type="button" class="why-btn" onclick="openExplain(this)"><span class="why-ico">💡</span> ทำไมถึงตอบแบบนี้?</button>
+   <div class="ex-src" hidden>${q[6]}</div>`:""}
+  </div>`).join("")+`
+  <div class="quiz-submit-wrap">
+   <div class="quiz-note" id="quizNote"></div>
+   <button type="button" class="qb-submit" id="qbSubmit" onclick="submitQuiz()">ส่งคำตอบ</button>
+  </div>`;
+ qzUpdateBar();
+}
+function pickAnswer(btn){
+ if(qzSubmitted) return;
+ const box=btn.closest(".q");
+ box.classList.remove("unanswered");
+ box.querySelectorAll(".opt").forEach(b=>b.classList.remove("picked"));
+ btn.classList.add("picked");
+ const note=document.getElementById("quizNote"); if(note) note.classList.remove("show");
+ qzUpdateBar();
+}
+function qzUpdateBar(){
+ const area=document.getElementById("quizArea"); if(!area) return;
+ const total=area.querySelectorAll(".q").length;
+ const answered=area.querySelectorAll(".opt.picked").length;
+ const sub=document.getElementById("qbSubmit");
+ const sc=document.getElementById("qbScore");
+ if(qzSubmitted) return;
+ if(sub) sub.disabled=false;
+ if(sc){
+  sc.className="qb-score";
+  sc.innerHTML='<small>ตอบแล้ว</small><b>'+answered+' / '+total+'</b>';
+ }
+}
+function submitQuiz(){
+ if(qzSubmitted) return;
+ const area=document.getElementById("quizArea"); if(!area) return;
+ const qs=[...area.querySelectorAll(".q")];
+ if(!qs.length) return;
+ const missing=qs.filter(q=>!q.querySelector(".opt.picked"));
+ if(missing.length){
+  qs.forEach(q=>q.classList.toggle("unanswered",!q.querySelector(".opt.picked")));
+  const note=document.getElementById("quizNote");
+  if(note){ note.textContent="ยังไม่ได้ตอบอีก "+missing.length+" ข้อ (ข้อ "+missing.map(q=>+q.dataset.i+1).join(", ")+") — ตอบให้ครบก่อนส่งนะ"; note.classList.add("show"); }
+  missing[0].scrollIntoView({behavior:"smooth",block:"center"});
+  return;
+ }
+ qzSubmitted=true;
+ let score=0;
+ qs.forEach(q=>{
+  const correct=q.dataset.correct;
+  const picked=q.querySelector(".opt.picked");
+  const letter=picked.dataset.l;
+  const ok=letter===correct;
+  if(ok) score++;
+  q.classList.add(ok?"is-right":"is-wrong");
+  q.querySelectorAll(".opt").forEach(b=>{
+   b.disabled=true;
+   b.classList.remove("picked");
+   if(b.dataset.l===correct) b.classList.add("right");
+   else if(b===picked) b.classList.add("wrong");
+  });
+  const ans=q.querySelector(".answer");
+  ans.style.display="block";
+  ans.textContent=ok?"✅ ถูกต้อง!":"❌ ยังไม่ถูก — เฉลยคือ "+correct;
+  ans.style.color=ok?"#15803d":"#dc2626";
+  const why=q.querySelector(".why-btn");
+  if(why) why.style.display="inline-flex";
+ });
+ const total=qs.length;
+ const sc=document.getElementById("qbScore");
+ if(sc){
+  sc.className="qb-score "+(score/total>=0.5?"done":"low");
+  sc.innerHTML='<small>คะแนน</small><b>'+score+' / '+total+'</b>';
+ }
+ const sub=document.getElementById("qbSubmit"); if(sub) sub.disabled=true;
+ const note=document.getElementById("quizNote"); if(note) note.classList.remove("show");
+ qzScrollTo("quizBar");
+}
+function exEnsureModal(){
+ let m=document.getElementById("exModal");
+ if(m) return m;
+ m=document.createElement("div");
+ m.id="exModal";
+ m.setAttribute("role","dialog");
+ m.setAttribute("aria-modal","true");
+ m.setAttribute("aria-labelledby","exTitle");
+ m.innerHTML=`<div class="ex-back" onclick="closeExplain()"></div>
+  <div class="ex-box">
+   <div class="ex-head">
+     <div class="ex-head-ico" id="exIco">💡</div>
+     <div class="ex-head-txt"><h4 id="exTitle">เหตุผลของคำตอบ</h4><small id="exSub"></small></div>
+     <button type="button" class="ex-x" aria-label="ปิด" onclick="closeExplain()">×</button>
+   </div>
+   <div class="ex-body">
+     <div id="exOkBanner"></div>
+     <div class="ex-pills" id="exPills"></div>
+     <div class="ex-reason" id="exReason"></div>
+     <button type="button" class="ex-done" onclick="closeExplain()">เข้าใจแล้ว 👍</button>
+   </div>
+  </div>`;
+ document.body.appendChild(m);
+ return m;
+}
+function openExplain(btn){
+ const box=btn.closest(".q");
+ if(!box) return;
+ const src=btn.nextElementSibling;
+ const reason=src?src.innerHTML:"ยังไม่มีคำอธิบายเพิ่มเติมสำหรับข้อนี้";
+ const qText=box.querySelector("b").textContent.replace(/^\d+\)\s*/,"");
+ const correctLetter=box.dataset.correct;
+ const correctBtn=box.querySelector('.opt[data-l="'+correctLetter+'"]');
+ const correctText=correctBtn?correctBtn.textContent:correctLetter;
+ const wrongBtn=box.querySelector(".opt.wrong");
+ const isOk=box.classList.contains("is-right");
+ const m=exEnsureModal();
+ document.getElementById("exIco").textContent=isOk?"🎉":"💡";
+ document.getElementById("exTitle").textContent=isOk?"ตอบถูกต้อง!":"มาดูเหตุผลกัน";
+ document.getElementById("exSub").textContent=qText;
+ document.getElementById("exOkBanner").innerHTML=isOk?'<div class="ex-ok-banner">✅ เยี่ยมมาก! คุณตอบถูกต้องแล้ว</div>':"";
+ let pills="";
+ if(!isOk && wrongBtn) pills+=`<div class="ex-pill wrong"><span>คุณตอบ</span><b>${wrongBtn.textContent}</b></div>`;
+ pills+=`<div class="ex-pill right"><span>เฉลยที่ถูกต้อง</span><b>${correctText}</b></div>`;
+ document.getElementById("exPills").innerHTML=pills;
+ document.getElementById("exReason").innerHTML=`<div class="ex-reason-label"><span class="rl-ico">📖</span> คำอธิบาย</div><div class="ex-reason-text">${reason}</div>`;
+ m.classList.add("show");
+ document.body.classList.add("qz-lock"); document.documentElement.classList.add("qz-lock");
+}
+function closeExplain(){
+ const m=document.getElementById("exModal");
+ if(m) m.classList.remove("show");
+ document.body.classList.remove("qz-lock"); document.documentElement.classList.remove("qz-lock");
+}
+function qzScrollTo(id){
+ const el=document.getElementById(id); if(!el) return;
+ const y=el.getBoundingClientRect().top+window.pageYOffset-84;
+ window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+}
+function resetQuiz(){
+ if(qzCurrent===null) return;
+ renderQuiz(qzCurrent);
+ const note=document.getElementById("quizNote"); if(note) note.classList.remove("show");
+ qzScrollTo("quizBar");
+}
+
+/* ---------- เชื่อมกับ EXAM HUB (ปุ่มกลับหน้าหลัก) ---------- */
+function goHomeFromSubject(){
+ closeMenu();
+ try{
+  if(window.parent && window.parent!==window){
+   if(typeof window.parent.goHome==="function"){ window.parent.goHome(); return; }
+   window.parent.postMessage({type:"exam-hub-home"},"*"); return;
+  }
+ }catch(e){
+  try{ window.parent.postMessage({type:"exam-hub-home"},"*"); return; }catch(_){}
+ }
+ window.location.href = location.protocol==="file:" ? "index.html" : "/home";
+}
+function openMenu(){document.getElementById("drawer").classList.add("open");document.getElementById("overlay").classList.add("show")}
+function closeMenu(){document.getElementById("drawer").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
+
+/* ---------- popup เลือกบทฝึก Quiz ---------- */
+let qzCurrent=null;
+let qzSubmitted=false;
+let qzByKey=false;
+function qzIcon(n){
+  const last=quizBanks.length-1;
+  if(n===last) return "🎯";
+  const pool=(typeof quizIcons!=="undefined"&&quizIcons)||["📘","📗","📙","📕","📒","📓","📔"];
+  return pool[n%pool.length];
+}
+function qzEnsureModal(){
+  let m=document.getElementById("qzModal");
+  if(m) return m;
+  m=document.createElement("div");
+  m.id="qzModal";
+  m.setAttribute("role","dialog");
+  m.setAttribute("aria-modal","true");
+  m.setAttribute("aria-labelledby","qzTitle");
+  m.innerHTML=`<div class="qz-back" onclick="closeQuizPicker()"></div>
+   <div class="qz-box">
+    <div class="qz-head">
+      <div class="qz-head-ico">📝</div>
+      <div><h4 id="qzTitle">📚 เลือกบทที่จะฝึก</h4><small>แตะบทที่ต้องการ แล้วโจทย์จะขึ้นให้ทันที</small></div>
+      <button type="button" class="qz-x" aria-label="ปิด" onclick="closeQuizPicker()">×</button>
+    </div>
+    <div class="qz-list" id="qzList"></div>
+   </div>`;
+  document.body.appendChild(m);
+  return m;
+}
+function openQuizPicker(ev){
+  qzByKey=!!(ev&&ev.detail===0);
+  const m=qzEnsureModal();
+  const last=quizBanks.length-1;
+  document.getElementById("qzList").innerHTML=quizBanks.map((b,n)=>{
+    const isAll=n===last;
+    const name=String(b.label).replace(/^\d+\.\s*/,"");
+    return `<button type="button" class="qz-item${isAll?" all":""}${n===qzCurrent?" active":""}" onclick="pickQuiz(${n})">
+      <span class="qz-i">${qzIcon(n)}</span>
+      <span class="qz-t"><span class="qz-n">${name}</span><span class="qz-c">${b.questions.length} ข้อ · ${isAll?"ทบทวนรวม":"ฝึกเฉพาะบท"}</span></span>
+      <span class="qz-ok">✓</span>
+    </button>`;
+  }).join("");
+  m.classList.add("show");
+  document.body.classList.add("qz-lock"); document.documentElement.classList.add("qz-lock");
+  const act=m.querySelector(".qz-item.active")||m.querySelector(".qz-item");
+  if(act){ act.focus({preventScroll:true}); act.scrollIntoView({block:"nearest"}); }
+}
+function closeQuizPicker(){
+  const m=document.getElementById("qzModal");
+  if(m) m.classList.remove("show");
+  document.body.classList.remove("qz-lock"); document.documentElement.classList.remove("qz-lock");
+  const b=document.getElementById("quizPickBtn"); if(b&&qzByKey) b.focus({preventScroll:true});
+  qzByKey=false;
+}
+function pickQuiz(n){
+  renderQuiz(n);
+  closeQuizPicker();
+  const a=document.getElementById("quizArea");
+  if(a) setTimeout(()=>a.scrollIntoView({behavior:"smooth",block:"start"}),60);
+}
+
+/* keep wheel / touch scrolling working inside the popup, never on the page behind */
+document.addEventListener("wheel",function(e){
+  const m=document.getElementById("qzModal");
+  if(!m||!m.classList.contains("show")) return;
+  const list=document.getElementById("qzList");
+  if(list && list.contains(e.target)) return;      // native scroll inside the list
+  e.preventDefault();
+  if(list) list.scrollTop += e.deltaY;              // wheel on backdrop/header -> scroll the list
+},{passive:false});
+document.addEventListener("keydown",function(e){
+  const m=document.getElementById("qzModal");
+  if(!m||!m.classList.contains("show")) return;
+  const list=document.getElementById("qzList"); if(!list) return;
+  const step={ArrowDown:60,ArrowUp:-60,PageDown:list.clientHeight*0.9,PageUp:-list.clientHeight*0.9}[e.key];
+  if(step!==undefined){ e.preventDefault(); list.scrollTop+=step; }
+  else if(e.key==="Home"){ e.preventDefault(); list.scrollTop=0; }
+  else if(e.key==="End"){ e.preventDefault(); list.scrollTop=list.scrollHeight; }
+  else if(e.key==="Escape"){ closeQuizPicker(); }
+});
+document.addEventListener("keydown",function(e){
+  if(e.key!=="Escape") return;
+  const ex=document.getElementById("exModal");
+  if(ex&&ex.classList.contains("show")) closeExplain();
+});
+
+/* ---------- ตรวจข้อมูลตอนโหลด (เปิด Console ดูคำเตือนได้; ไม่กระทบหน้าเว็บ) ---------- */
+(function validateSubjectData(){
+  const w=m=>console.warn("[ตรวจข้อมูล] "+m);
+  if(!topics.length) return w("ไม่มีบทเรียนเลย");
+  const lt=topics[topics.length-1];
+  if(lt.sections&&lt.sections.length) w("บทสุดท้ายต้องเป็นหน้า Quiz (sections ว่าง)");
+  topics.forEach((t,i)=>{ if(!t.title) w("บทที่ "+(i+1)+" ไม่มี title"); });
+  quizBanks.forEach((b,n)=>(b.questions||[]).forEach((q,k)=>{
+    if(!Array.isArray(q)||q.length<6) return w("ชุด \""+b.label+"\" ข้อ "+(k+1)+": ต้องมี 6 ช่อง (โจทย์, A, B, C, D, เฉลย)");
+    if(!/^[A-D]$/.test(String(q[5]).trim().toUpperCase())) w("ชุด \""+b.label+"\" ข้อ "+(k+1)+": เฉลยต้องเป็น A/B/C/D");
+  }));
+})();
+
+showTopic(0);
+</script>
+</body>
+</html>
