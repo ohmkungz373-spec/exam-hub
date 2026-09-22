@@ -2,6 +2,9 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>English อ่าน-เขียน แนวข้อสอบ ปลายภาค | ม.4</title>
 <style>
@@ -13,7 +16,7 @@
 }
 html{scroll-behavior:smooth}
 body{
- font-family:"Noto Sans Thai","Tahoma",Arial,sans-serif;
+ font-family:"IBM Plex Sans Thai","Tahoma",Arial,sans-serif;
  background:linear-gradient(135deg,#f7f8ff 0%,#eef7ff 100%);
  color:var(--ink);line-height:1.7;min-height:100vh
 }
@@ -78,7 +81,7 @@ ul{padding-left:25px}
 li{font-size:16px;margin:7px 0}
 li::marker{color:#6366f1}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}
-.box{padding:17px;border-radius:18px;background:#f8fafc;border:1px solid #edf0f5}
+.box{padding:17px;border-radius:18px;background:#f8fafc;border:1px solid #c7d2fe}
 .box strong{display:block;color:#3730a3;margin-bottom:4px}
 .formula{
  font-family:monospace;background:#fff7d6;border:1px solid #fde68a;
@@ -88,7 +91,8 @@ li::marker{color:#6366f1}
 .note{
  margin-top:22px;padding:18px;border-radius:17px;
  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
- border:1px solid #dbeafe;color:#1e3a8a
+ border:2px solid #1d4ed8;color:#1e3a8a;
+ box-shadow:0 8px 22px rgba(29,78,216,.16)
 }
 .nav{
  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px
@@ -410,10 +414,15 @@ main{max-width:1120px!important;padding-top:116px!important}
 .topic-no{
  box-shadow:0 10px 25px rgba(79,70,229,.16)!important;
 }
-.intro,.box,.formula,.note{
+.intro,.box,.formula{
  border-radius:20px!important;
- border:1px solid #e8edf6!important;
+ border:1px solid #c7d2fe!important;
  box-shadow:0 8px 24px rgba(30,41,59,.055)!important;
+}
+.note{
+ border-radius:20px!important;
+ border:2px solid #1d4ed8!important;
+ box-shadow:0 8px 24px rgba(29,78,216,.16)!important;
 }
 .grid{gap:16px!important}
 .box:hover{
@@ -433,13 +442,13 @@ main{max-width:1120px!important;padding-top:116px!important}
 .nav button:hover,.quiz button:hover{transform:translateY(-2px)!important}
 .quiz{
  border-radius:24px!important;
- border:1px solid #e6eaf4!important;
+ border:1px solid #a5b4fc!important;
  box-shadow:0 14px 35px rgba(79,70,229,.07)!important;
  overflow:hidden;
 }
 .q{
  border-radius:18px!important;
- border:1px solid #e7ebf3!important;
+ border:1px solid #c7d2fe!important;
  box-shadow:0 7px 20px rgba(30,41,59,.045)!important;
 }
 .answer{
@@ -527,7 +536,7 @@ footer{
 .sec-card{
  margin-top:18px;padding:20px 22px 16px;border-radius:22px;
  background:linear-gradient(180deg,#ffffff 0%,#fafbff 100%);
- border:1px solid #e0e7ff;
+ border:1px solid #a5b4fc;
  box-shadow:0 6px 22px rgba(79,70,229,.07),0 1px 3px rgba(15,23,42,.04);
 }
 .sec-card h3{margin:0 0 12px;padding-bottom:12px;border-bottom:1px dashed #dbe3ff}
@@ -684,6 +693,55 @@ body.qz-lock,html.qz-lock{overflow:hidden}
 .nav button:last-child:disabled,.nav button:last-child:disabled:hover{
  background:linear-gradient(135deg,var(--primary),var(--primary2))!important;
 }
+
+/* ===== Vocabulary Flashcards ===== */
+.fc-wrap{margin-top:15px}
+.fc-hint{display:block;font-size:12.5px;color:#7c3aed;font-weight:800;margin-bottom:12px}
+.flashcards{
+ display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:13px
+}
+.fc-card{perspective:1200px;min-height:128px}
+.fc-inner{
+ position:relative;width:100%;height:100%;min-height:128px;
+ transition:transform .55s cubic-bezier(.22,1,.36,1);transform-style:preserve-3d;cursor:pointer
+}
+.fc-card.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-face{
+ position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;border-radius:18px;padding:14px 12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+ box-shadow:0 8px 22px rgba(124,58,237,.14)
+}
+.fc-front{
+ background:linear-gradient(160deg,#ede9fe 0%,#f5f3ff 45%,#faf5ff 100%);
+ border:2px dashed #a78bfa;color:#5b21b6
+}
+.fc-front .fc-word{font-size:17px;font-weight:950;line-height:1.3}
+.fc-front .fc-pos{margin-top:6px;font-size:11.5px;font-weight:800;color:#8b5cf6;letter-spacing:.3px}
+.fc-front .fc-tap{
+ position:absolute;bottom:7px;right:7px;display:flex;align-items:center;gap:3px;
+ font-size:9.5px;color:#fff;font-weight:800;background:linear-gradient(135deg,#7c3aed,#a78bfa);
+ padding:3px 7px;border-radius:999px;box-shadow:0 2px 6px rgba(124,58,237,.35)
+}
+.fc-back{
+ transform:rotateY(180deg);
+ background:linear-gradient(160deg,#7c3aed 0%,#8b5cf6 55%,#a78bfa 100%);
+ color:#fff;font-weight:800;font-size:14.5px;line-height:1.5;border:2px solid #ddd6fe
+}
+.fc-back .fc-tap{
+ position:absolute;bottom:7px;right:7px;display:flex;align-items:center;gap:3px;
+ font-size:9.5px;color:#7c3aed;font-weight:800;background:#fff;
+ padding:3px 7px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.15)
+}
+.fc-card:hover .fc-front{border-color:#7c3aed;box-shadow:0 10px 26px rgba(124,58,237,.24)}
+.fc-card:active .fc-inner{transform:scale(.97)}
+.fc-card.flipped:active .fc-inner{transform:rotateY(180deg) scale(.97)}
+@media(max-width:560px){
+ .flashcards{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+ .fc-card{min-height:112px}
+ .fc-inner{min-height:112px}
+ .fc-front .fc-word{font-size:15px}
+ .fc-back{font-size:13px}
+}
 </style>
 <!-- ข้อมูลวิชาสำหรับหน้า Hub (server.js อ่านไปสร้างการ์ดวิชาอัตโนมัติ) -->
 <script type="application/json" id="subject-meta">
@@ -795,12 +853,40 @@ function filterMenu(){
  buildMenu(topics.filter(t=>(t.title+" "+t.sub+" "+t.intro).toLowerCase().includes(q)));
 }
 
+function buildFlashcards(items,uid){
+ const cards=items.map(it=>{
+  const idx=it.indexOf(" = ");
+  let frontHtml=it,backHtml="";
+  if(idx!==-1){ frontHtml=it.slice(0,idx); backHtml=it.slice(idx+3); }
+  const m=frontHtml.match(/<strong>([\s\S]*?)<\/strong>/);
+  let word=frontHtml,pos="";
+  if(m){
+   const inner=m[1];
+   const pm=inner.match(/^([\s\S]*?)\s*(\([^)]*\))\s*$/);
+   if(pm){ word=pm[1]; pos=pm[2]; } else { word=inner; }
+  }
+  return `<div class="fc-card" onclick="this.classList.toggle('flipped')">
+    <div class="fc-inner">
+     <div class="fc-face fc-front"><div class="fc-word">${word}</div>${pos?`<div class="fc-pos">${pos}</div>`:""}<div class="fc-tap">แปล ↻</div></div>
+     <div class="fc-face fc-back"><div>${backHtml||"—"}</div><div class="fc-tap">แปล ↻</div></div>
+    </div>
+   </div>`;
+ }).join("");
+ return `<div class="fc-wrap">
+   <span class="fc-hint">👆 แตะการ์ดเพื่อพลิกดูความหมาย</span>
+   <div class="flashcards" id="${uid}">${cards}</div>
+  </div>`;
+}
 function showTopic(i){
  const t=topics[i];
  let body="";
  if(t.sections){
-  t.sections.forEach(s=>{
-   body+=`<section class="sec-card"><h3>${s[0]}</h3><ul>${s[1].map(x=>`<li>${x}</li>`).join("")}</ul></section>`;
+  t.sections.forEach((s,si)=>{
+   if(/vocabulary/i.test(s[0])){
+    body+=`<section class="sec-card"><h3>${s[0]}</h3>${buildFlashcards(s[1],"fc-"+i+"-"+si)}</section>`;
+   }else{
+    body+=`<section class="sec-card"><h3>${s[0]}</h3><ul>${s[1].map(x=>`<li>${x}</li>`).join("")}</ul></section>`;
+   }
   });
  }
  let quiz="";

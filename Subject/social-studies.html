@@ -2,6 +2,9 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ชื่อวิชา | ม.4</title>
 <!--
@@ -35,7 +38,7 @@
 }
 html{scroll-behavior:smooth;overflow-y:auto;-webkit-overflow-scrolling:touch}
 body{
- font-family:"Noto Sans Thai","Tahoma",Arial,sans-serif;
+ font-family:"IBM Plex Sans Thai","Tahoma",Arial,sans-serif;
  background:linear-gradient(135deg,#f7f8ff 0%,#eef7ff 100%);
  color:var(--ink);line-height:1.7;min-height:100vh
 }
@@ -102,7 +105,7 @@ ul{padding-left:25px}
 li{font-size:16px;margin:7px 0}
 li::marker{color:#6366f1}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}
-.box{padding:17px;border-radius:18px;background:#f8fafc;border:1px solid #edf0f5}
+.box{padding:17px;border-radius:18px;background:#f8fafc;border:1px solid #c7d2fe}
 .box strong{display:block;color:#3730a3;margin-bottom:4px}
 .formula{
  font-family:monospace;background:#fff7d6;border:1px solid #fde68a;
@@ -112,7 +115,8 @@ li::marker{color:#6366f1}
 .note{
  margin-top:22px;padding:18px;border-radius:17px;
  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
- border:1px solid #dbeafe;color:#1e3a8a
+ border:2px solid #1d4ed8;color:#1e3a8a;
+ box-shadow:0 8px 22px rgba(29,78,216,.16)
 }
 mark{background:linear-gradient(135deg,#fef08a,#fde68a);color:#78350f;padding:1px 6px;border-radius:6px;font-weight:900;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 mark.g{background:linear-gradient(135deg,#bbf7d0,#86efac);color:#14532d}
@@ -300,10 +304,15 @@ main{max-width:1120px!important;padding-top:116px!important}
 .topic-no{
  box-shadow:0 10px 25px rgba(79,70,229,.16)!important;
 }
-.intro,.box,.formula,.note{
+.intro,.box,.formula{
  border-radius:20px!important;
- border:1px solid #e8edf6!important;
+ border:1px solid #c7d2fe!important;
  box-shadow:0 8px 24px rgba(30,41,59,.055)!important;
+}
+.note{
+ border-radius:20px!important;
+ border:2px solid #1d4ed8!important;
+ box-shadow:0 8px 24px rgba(29,78,216,.16)!important;
 }
 .grid{gap:16px!important}
 .box:hover{
@@ -323,13 +332,13 @@ main{max-width:1120px!important;padding-top:116px!important}
 .nav button:hover,.quiz button:hover{transform:translateY(-2px)!important}
 .quiz{
  border-radius:24px!important;
- border:1px solid #e6eaf4!important;
+ border:1px solid #a5b4fc!important;
  box-shadow:0 14px 35px rgba(79,70,229,.07)!important;
  overflow:hidden;
 }
 .q{
  border-radius:18px!important;
- border:1px solid #e7ebf3!important;
+ border:1px solid #c7d2fe!important;
  box-shadow:0 7px 20px rgba(30,41,59,.045)!important;
 }
 .answer{
@@ -417,7 +426,7 @@ footer{
 .sec-card{
  margin-top:18px;padding:20px 22px 16px;border-radius:22px;
  background:linear-gradient(180deg,#ffffff 0%,#fafbff 100%);
- border:1px solid #e0e7ff;
+ border:1px solid #a5b4fc;
  box-shadow:0 6px 22px rgba(79,70,229,.07),0 1px 3px rgba(15,23,42,.04);
 }
 .sec-card h3{margin:0 0 12px;padding-bottom:12px;border-bottom:1px dashed #dbe3ff}
